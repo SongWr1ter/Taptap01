@@ -16,7 +16,7 @@ public class RoleQueueManager : MonoBehaviour
     public Image BombSlot;
 
     private Dictionary<Image, RoleCategory> slotToCategory;
-    private Dictionary<Image, GameObject> slotToPrefab;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class RoleQueueManager : MonoBehaviour
             {GunSlot, Gun },
             {BombSlot, Bomb }
         };
-        slotToPrefab = new Dictionary<Image, GameObject>();
+        
         RefreshAll();
     }
     // Update is called once per frame
@@ -49,8 +49,9 @@ public class RoleQueueManager : MonoBehaviour
         Debug.Log(roleCategory.roles.Count);
         int index = Random.Range(0,roleCategory.roles.Count);
         GameObject rolePrefab = roleCategory.roles[index].prefab;
-
-        slotToPrefab[slot] = rolePrefab;
+        //修改逻辑？此处通过从对象池中拿出一个prefab，再填入对应数据（通过名字？），将其赋值给rolePrefab
+        //此处修改为抽取角色名字->生成对应prefab->赋值给rolePrefab
+        
         slot.sprite = roleCategory.roles[index].sprites[0];
 
         //拖拽逻辑
