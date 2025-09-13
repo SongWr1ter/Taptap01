@@ -18,10 +18,12 @@ public class RoleQueueManager : MonoBehaviour
     private Dictionary<Image, RoleCategory> slotToCategory;
     Dictionary<string, int> roleWeights = new Dictionary<string, int>()
 {
-    { "Gunner", 70 },   
-    { "Bomber", 25 },    
-    { "AttackA", 4 },       
-    { "AttackB", 1 }      
+    { "Moxin", 90 },   
+    { "M19", 90 },    
+    { "G98", 60 },       
+    { "1916", 60 },
+    {"MachineGun",30 },
+    { "Tk", 30 },
 };
 
 

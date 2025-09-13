@@ -59,7 +59,7 @@ public class RoleDragHandler : MonoBehaviour
                 dragIcon.sprite = sprite;
                 dragIcon.transform.SetParent(canvas.transform, false);
                 dragRect = dragIcon.GetComponent<RectTransform>();
-                dragRect.sizeDelta = new Vector2(100, 100);
+                dragRect.sizeDelta = new Vector2(100, 150);
 
                 dragIcon.raycastTarget = false;
             }
