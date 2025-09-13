@@ -16,7 +16,14 @@ public class RoleQueueManager : MonoBehaviour
     public Image BombSlot;
 
     private Dictionary<Image, RoleCategory> slotToCategory;
-   
+    Dictionary<string, int> roleWeights = new Dictionary<string, int>()
+{
+    { "Gunner", 70 },   
+    { "Bomber", 25 },    
+    { "AttackA", 4 },       
+    { "AttackB", 1 }      
+};
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +54,34 @@ public class RoleQueueManager : MonoBehaviour
     public void RefreshRole(Image slot,RoleCategory roleCategory)
     {
         Debug.Log(roleCategory.roles.Count);
+        int totalWeight = 0;
+        foreach (var role in roleCategory.roles)
+        {
+            if (roleWeights.ContainsKey(role.name))
+            {
+                totalWeight += roleWeights[role.name];
+            }
+            else
+            {
+                totalWeight += 1;
+            }
+        }
+        int randomValue = Random.Range(0, totalWeight);
+
+        int cumulative = 0;
+        string chosenRoleName = null;
+        foreach (var role in roleCategory.roles)
+        {
+            int weight = roleWeights.ContainsKey(role.name) ? roleWeights[role.name] : 1;
+            cumulative += weight;
+
+            if (randomValue < cumulative)
+            {
+                chosenRoleName = role.name;
+                break;
+            }
+        }
+
         int index = Random.Range(0,roleCategory.roles.Count);
         System.String roleName = roleCategory.roles[index].name;
         //修改逻辑？此处通过从对象池中拿出一个prefab，再填入对应数据（通过名字？），将其赋值给rolePrefab
@@ -61,8 +96,8 @@ public class RoleQueueManager : MonoBehaviour
             drag = slot.gameObject.AddComponent<UIDragHandler>();
         }
         Debug.Log(roleCategory.roles[index].sprites.Count);
-        Debug.Log(roleName);
-        drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}+UnitData");
+        Debug.Log($"Data/{roleName}+UnitData");
+        drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}UnitData");
         Debug.Log(drag.battleUnitData.ToString());
         drag.dragSprite = roleCategory.roles[index].sprites[1];
     }
