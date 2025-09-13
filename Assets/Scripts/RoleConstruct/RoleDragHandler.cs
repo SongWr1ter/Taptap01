@@ -42,7 +42,7 @@ public class RoleDragHandler : MonoBehaviour
         {
             
             Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            originPos = MouseWorldPos;
+            //originPos = MouseWorldPos;
 
             RaycastHit2D hit2D = Physics2D.Raycast(MouseWorldPos, Vector2.zero);
             if (hit2D.collider != null && hit2D.collider.gameObject.layer == LayerMask.NameToLayer("character"))
@@ -53,6 +53,7 @@ public class RoleDragHandler : MonoBehaviour
                 Debug.Log("hit!");
                 Debug.Log(hit2D.collider.gameObject.layer);
                 dragCharacter = hit2D.collider.gameObject.transform.parent.gameObject;
+                originPos = dragCharacter.transform.position;
                 dragCharacter.SetActive(false);
                 GameObject icon = new GameObject("dragIcon");
                 dragIcon = icon.AddComponent<Image>();
@@ -127,7 +128,7 @@ public class RoleDragHandler : MonoBehaviour
                     }
                     else 
                     {
-                        Vector3 tmp = new Vector3(originPos.x, -11.8f,0);
+                        Vector3 tmp = new Vector3(originPos.x, -11.8f,originPos.z);
                         dragCharacter.transform.position = tmp;    
                         dragCharacter.SetActive(true);
                     }

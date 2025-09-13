@@ -103,6 +103,11 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
         if(data.deadSFX != "")
             SoundManager.PlayAudio(data.deadSFX);
+
+        if(faction == Faction.Monster)
+        {
+            CoinManager.Instance.AddCoin(35);
+        }
     }
 
     private void Update()

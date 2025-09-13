@@ -19,6 +19,7 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
     private Sprite forbidSprite;
     private bool canPlace = true;
     private Camera mainCamera;
+    
 
     void Start()
     {
@@ -100,6 +101,8 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         worldPos.z = 0;
         if (canPlace)
         {
+
+            worldPos.z = Random.Range(-1f, 1f);
             Debug.Log(battleUnitData.ToString() + "2");
            GameObject tmp = ObjectPoolRegister.Instance._objectPool.Spawn("Tower", worldPos, Quaternion.identity, battleUnitData).gameObject;
             tmp.transform.localScale = new Vector3(3,3,3);
