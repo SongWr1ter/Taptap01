@@ -10,7 +10,7 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
 {
     [HideInInspector] public BattleUnitData battleUnitData;
     [HideInInspector] public Sprite dragSprite;
-
+    [HideInInspector] public int cost;
     public float groundY = -0.4f;
     
 
@@ -28,6 +28,13 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (CoinManager.Instance.coinCount < cost)
+        {
+            Debug.Log("金币不足，无法建造！");
+            eventData.pointerDrag = null; // 阻止拖拽事件继续
+            return;
+        }
+        else CoinManager.Instance.SpendCoin(cost);
         CameraDrag.canDrag = false;
         GameObject icon = new GameObject("dragIcon");
         dragIcon = icon.AddComponent<Image>();
@@ -90,12 +97,12 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
         worldPos.y = -12f;
         worldPos.z = 0;
-        if(canPlace)
+        if (canPlace)
         {
-            ObjectPoolRegister.Instance._objectPool.Spawn("Tower",worldPos,Quaternion.identity,battleUnitData);
+            ObjectPoolRegister.Instance._objectPool.Spawn("Tower", worldPos, Quaternion.identity, battleUnitData);
         }
-        
+        else CoinManager.Instance.AddCoin(cost);
 
-        CameraDrag.canDrag = true;
+            CameraDrag.canDrag = true;
     }
 }

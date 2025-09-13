@@ -24,16 +24,17 @@ public class CoinManager : SingleTon<CoinManager>
         coinCount += amount;
         updateCoin();
     }
-    public void SpendCoin(int amount)
+    public bool SpendCoin(int amount)
     {
         if (coinCount >= amount)
         {
             coinCount -= amount;
             updateCoin();
-            return;
+            return true;
         }
+        
         Debug.Log("Óà¶î²»×ã£¡");
-
+        return false;
     }
     public void updateCoin()
     {

@@ -6,6 +6,8 @@ using UnityEngine;
 public enum MESSAGE_TYPE
 {
     GAME_OVER = 0,
+    SkillA,
+    SkillAEnd,
 }
 public struct CommonMessage
 {

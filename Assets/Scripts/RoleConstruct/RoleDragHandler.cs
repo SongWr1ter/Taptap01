@@ -120,7 +120,7 @@ public class RoleDragHandler : MonoBehaviour
                     null))
                     {
                         Debug.Log("��λ�����գ�");
-                        CoinManager.Instance.AddCoin(100);
+                        CoinManager.Instance.AddCoin(500);
                         Destroy(dragCharacter.gameObject);
                     }
                     else 
