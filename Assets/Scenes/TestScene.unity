@@ -1347,6 +1347,7 @@ RectTransform:
   - {fileID: 206983858}
   - {fileID: 1581693369}
   - {fileID: 1633183460}
+  - {fileID: 433027713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3535,26 +3536,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attack:
     roles:
-    - name: Gunner
+    - name: MachineGun
       cost: 600
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
-    - name: Gunner
+    - name: MachineGun
       cost: 800
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
   Gun:
     roles:
-    - name: Gunner
+    - name: MachineGun
       cost: 1000
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
   Bomb:
     roles:
-    - name: Gunner
+    - name: MachineGun
       cost: 1400
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}

@@ -142,7 +142,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6397009577855045618}
   - {fileID: 7974255854887040288}
@@ -229,6 +229,9 @@ MonoBehaviour:
     ammo: 0
     maxAmmo: 0
     reloadingTime: 0
+    hurtSFX: 
+    deadSFX: 
+    attackSFX: 
   anim: {fileID: 0}
   rb: {fileID: 0}
 --- !u!50 &8336041383601630892
@@ -285,6 +288,9 @@ MonoBehaviour:
     ammo: 0
     maxAmmo: 0
     reloadingTime: 0
+    hurtSFX: 
+    deadSFX: 
+    attackSFX: 
   Box_Width: 7.63
   Box_Height: 4
   faction: 0

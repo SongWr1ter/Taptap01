@@ -99,7 +99,9 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         worldPos.z = 0;
         if (canPlace)
         {
-            ObjectPoolRegister.Instance._objectPool.Spawn("Tower", worldPos, Quaternion.identity, battleUnitData);
+            Debug.Log(battleUnitData.Name);
+           GameObject tmp = ObjectPoolRegister.Instance._objectPool.Spawn("Tower", worldPos, Quaternion.identity, battleUnitData).gameObject;
+            tmp.transform.localScale = new Vector3(3,3,3);
         }
         else CoinManager.Instance.AddCoin(cost);
 
