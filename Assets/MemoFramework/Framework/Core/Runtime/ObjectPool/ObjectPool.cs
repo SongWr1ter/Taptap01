@@ -110,7 +110,8 @@ namespace MemoFramework.ObjectPool
             {
                 var next = node.Next;
                 node.Value.OnDespawned();
-                Object.Destroy(node.Value.transform.gameObject);
+                if(node.Value.transform.gameObject != null)
+                    Object.Destroy(node.Value.transform.gameObject);
                 node = next;
             }
         }

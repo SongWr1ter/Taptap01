@@ -19,24 +19,26 @@ public class GameManager : SingleTon<GameManager>
         MessageCenter.RemoveListener(GameOver,MESSAGE_TYPE.GAME_OVER);
     }
 
-    private void Update()
+    public void GameRestartBtn()
     {
         if (gameOver)
         {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-                Time.timeScale = 1;
-                gameOver = false;
-                ObjectPoolRegister.Instance.RemoveCache();
-            }
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1;
+            gameOver = false;
+            ObjectPoolRegister.Instance.RemoveCache();
+            SoundManager.WhenSceneReload();
+            ObjectPoolRegister.Instance.RemoveAllPool();
         }
     }
 
     public void GameOver(CommonMessage msg)
     {
-        Time.timeScale = 0;
-        gameOver = true;
-        ObjectPoolRegister.Instance.RemoveAllPool();
+        if (gameOver == false)
+        {
+            Time.timeScale = 0;
+            gameOver = true;
+        }
+        
     }
 }

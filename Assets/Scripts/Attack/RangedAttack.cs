@@ -38,6 +38,7 @@ public class RangedAttack : BaseAttack
         if (timer >= shotInverval)
         {
             timer = 0f;
+            SoundManager.PlayAudioWithLimit(attackSFX);
             // Create Bullet
             ObjectPoolRegister.Instance._objectPool.Spawn(bulletType.ToString(), shootTrans.position,
                 shootTrans.rotation, bulletData);
