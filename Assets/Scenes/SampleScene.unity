@@ -1687,6 +1687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 8197351373016543934, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 8edec0dbe4ab28049884746616e6f0bc, type: 2}
     - target: {fileID: 8668546341046179385, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: flag
       value: 1
@@ -1695,13 +1699,21 @@ PrefabInstance:
       propertyPath: bdata
       value: 
       objectReference: {fileID: 11400000, guid: db8b3e21772cfce45a5a4f8bc7fb0d53, type: 2}
+    - target: {fileID: 8668546341046179385, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
+      propertyPath: Box_Width
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668546341046179385, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
+      propertyPath: Box_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8773696054147934480, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.92
+      value: -7.72
       objectReference: {fileID: 0}
     - target: {fileID: 8773696054147934480, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.27
+      value: -2.21
       objectReference: {fileID: 0}
     - target: {fileID: 8773696054147934480, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: m_LocalPosition.z
