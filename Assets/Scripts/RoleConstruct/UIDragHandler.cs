@@ -19,10 +19,12 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
     private Sprite forbidSprite;
     private bool canPlace = true;
     private Camera mainCamera;
+    
 
     void Start()
     {
         forbidSprite = Resources.Load<Sprite>("Sprite/forbidSprite");
+        dragSprite = Resources.Load<Sprite>("Sprite/permitSprite");
         mainCamera = Camera.main;
     }
 
@@ -95,11 +97,13 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         }
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
-        worldPos.y = -12f;
+        worldPos.y = -11.8f;
         worldPos.z = 0;
         if (canPlace)
         {
-            Debug.Log(battleUnitData.Name);
+
+            worldPos.z = Random.Range(-1f, 1f);
+            Debug.Log(battleUnitData.ToString() + "2");
            GameObject tmp = ObjectPoolRegister.Instance._objectPool.Spawn("Tower", worldPos, Quaternion.identity, battleUnitData).gameObject;
             tmp.transform.localScale = new Vector3(3,3,3);
         }

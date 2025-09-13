@@ -9,7 +9,7 @@ public class RoleEntry
 {
     public String name;
     public int cost;
-    public List<Sprite> sprites;     
+    public Sprite sprite;     
 }
 
 [System.Serializable]
