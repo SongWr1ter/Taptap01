@@ -7,18 +7,28 @@ public class MeleeAttack : BaseAttack
 {
     //近战攻击：对一定矩形范围内的敌人造成伤害
 
-    public override void AttackInit()
+    public override void AttackInit(object o)
     {
-        throw new System.NotImplementedException();
+        
+    }
+
+    public override void AttackEnter()
+    {
+        
     }
 
     public override void AttackUpdate(float deltaTime)
     {
-        throw new System.NotImplementedException();
+        
+    }
+
+    public override void AttackUpdate(float deltaTime, Transform shootTrans)
+    {
+        
     }
 
     public override void AttackExit()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public enum PoolName
 {
     Bullet,
+    BombBullet,
     Character,
     Enemy,
     Effect,
