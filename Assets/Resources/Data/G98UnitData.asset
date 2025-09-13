@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: M19UnitData
+  m_Name: G98UnitData
   m_EditorClassIdentifier: 
-  Name: M19
-  sprite: {fileID: -193088999, guid: aeb564adea11eef4d8b114616285cac7, type: 3}
-  animator: {fileID: 22100000, guid: c0912c91cbdc8174cac54af0baf82c68, type: 2}
+  Name: G98
+  sprite: {fileID: -1454523467, guid: 5eaaa53c3b54d074c98f1764409833ac, type: 3}
+  animator: {fileID: 22100000, guid: d2bc3fd5e39cf4e498e1d0f946d24622, type: 2}
   MaxHealth: 40
   resistance: 1
   speed: 0
   hurtDuration: 1
   attackInterval: 1
-  AttackLogic: {fileID: 11400000, guid: efde11e1db7751a42a8f63c69d979121, type: 2}
+  AttackLogic: {fileID: 11400000, guid: 6af5f7d07a76acd4cad6e93a16863f53, type: 2}
   Box_Width: 4
   Box_Height: 4
   faction: 0
   rangedWeapon: 1
-  shootPosOffset: {x: -0.377, y: 0.031, z: 0}
+  shootPosOffset: {x: -0.533, y: 0.061, z: 0}
   hurtSFX: 
   deadSFX: 

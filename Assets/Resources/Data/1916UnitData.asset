@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: M19UnitData
+  m_Name: 1916UnitData
   m_EditorClassIdentifier: 
-  Name: M19
-  sprite: {fileID: -193088999, guid: aeb564adea11eef4d8b114616285cac7, type: 3}
-  animator: {fileID: 22100000, guid: c0912c91cbdc8174cac54af0baf82c68, type: 2}
+  Name: 1916
+  sprite: {fileID: 1966403187, guid: ba6ee5d1943ca404989fcb2e69920c81, type: 3}
+  animator: {fileID: 22100000, guid: cc30fbede3175ec4c98ccf332c487b63, type: 2}
   MaxHealth: 40
   resistance: 1
   speed: 0
   hurtDuration: 1
   attackInterval: 1
-  AttackLogic: {fileID: 11400000, guid: efde11e1db7751a42a8f63c69d979121, type: 2}
+  AttackLogic: {fileID: 11400000, guid: 4c942c0d8e3f8c2409846a0fa8899a2f, type: 2}
   Box_Width: 4
   Box_Height: 4
   faction: 0
   rangedWeapon: 1
-  shootPosOffset: {x: -0.377, y: 0.031, z: 0}
+  shootPosOffset: {x: -0.477, y: -0.028, z: 0}
   hurtSFX: 
   deadSFX: 
