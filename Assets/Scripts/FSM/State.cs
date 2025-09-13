@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MemoFramework.ObjectPool;
+using UnityEngine;
 
 namespace FSM
 {
@@ -64,9 +65,7 @@ namespace FSM
         }
         public override void Enter()
         {
-            UnityEngine.Debug.Log("IdleState Enter");
-            /* 待机状态进入逻辑 */
-            // 播放待机动画
+            fsm.anim.Play("Idle");
         }
         public override void Execute()
         {
@@ -88,6 +87,7 @@ namespace FSM
         }
         public override void Enter()
         {
+            fsm.anim.Play("Idle");
             UnityEngine.Debug.Log("MoveState Enter");
             /* 移动状态进入逻辑 */
         }
@@ -137,18 +137,29 @@ namespace FSM
 
     public class DeadState : State
     {
+        private float timer = 0f;
         public DeadState(FinateStateMachine fsm) : base(fsm)
         {
             Type = StateType.Dead;
         }
         public override void Enter()
         {
+            fsm.anim.Play("Dead");
             UnityEngine.Debug.Log("DeadState Enter");
             /* 死亡状态进入逻辑 */
         }
         public override void Execute()
         {
-            /* 死亡状态执行逻辑 */
+            // 死亡动画播放完毕后等一段时间然后消失
+            if (fsm.anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            {
+                timer += Time.deltaTime;
+                if (timer >= 2f)
+                {
+                    ObjectPoolRegister.Instance._objectPool.Despawn(fsm.data.io);
+                }
+            }
+            
         }
         public override void Exit()
         {
@@ -166,6 +177,7 @@ namespace FSM
         }
         public override void Enter()
         {
+            fsm.anim.Play("Attack");
             //重复播放攻击动画or射一次子弹
             UnityEngine.Debug.Log("AttackState In");
         }
@@ -194,6 +206,7 @@ namespace FSM
         }
         public override void Enter()
         {
+            fsm.anim.Play("Attack");
             fsm.data.AttackLogic.AttackEnter();
         }
         public override void Execute()

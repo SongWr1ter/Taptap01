@@ -6,8 +6,8 @@ public enum PoolName
 {
     Bullet,
     BombBullet,
-    Character,
-    Enemy,
+    Tower,
+    Monster,
     Effect,
     Item,
 }

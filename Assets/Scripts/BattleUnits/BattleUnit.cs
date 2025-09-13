@@ -22,6 +22,8 @@ public class Parameter
     public BaseAttack AttackLogic;
     [Header("如果是近战则无视这个选项")]
     public Transform shootTrans;
+    [HideInInspector]
+    public IObject io;
 }
 
 public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
@@ -59,7 +61,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     {
         fsm = GetComponent<FinateStateMachine>();
         fsm.data = data; // 将数值传递给状态机,无关顺序
-        
+        data.io = this;
     }
 
     
@@ -88,6 +90,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
 
     public void Die()
     {
+        canDamage = false;
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
     }
 
@@ -193,6 +196,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             Box_Width = bdata.Box_Width;
             Box_Height = bdata.Box_Height;
             faction = bdata.faction;
+            Name = faction.ToString();
             // 设置朝向
             if (faction == Faction.Tower)
             {
@@ -207,6 +211,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             //
             GetComponent<Animator>().runtimeAnimatorController = bdata.animator;
             GetComponent<SpriteRenderer>().sprite = bdata.sprite;
+            data.AttackLogic.AttackInit();
         }
         else
         {
@@ -223,6 +228,6 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     }
     public void OnDespawned()
     {
-        throw new NotImplementedException();
+        
     }
 }
