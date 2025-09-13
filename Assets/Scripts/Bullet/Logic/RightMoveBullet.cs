@@ -38,6 +38,7 @@ public class RightMoveBullet : BulletBase
                 if (Explosion)
                 {
                     //生成 VFX
+                    ObjectPoolRegister.Instance._objectPool.Spawn("Explosion", transform.position, Quaternion.identity);
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, interactableLayer);
                     foreach (Collider2D nearbyObject in colliders)
                     {

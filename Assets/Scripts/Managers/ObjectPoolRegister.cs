@@ -10,6 +10,7 @@ public enum PoolName
     Monster,
     Effect,
     Item,
+    Explosion,
 }
 public class ObjectPoolRegister : SingleTon<ObjectPoolRegister>
 {
