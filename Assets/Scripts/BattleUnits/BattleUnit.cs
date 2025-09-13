@@ -17,6 +17,7 @@ public class Parameter
     public Vector3 direction;
     public float hurtDuration;
     public float attackInterval;
+    public BaseAttack AttackLogic;
 }
 
 public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback

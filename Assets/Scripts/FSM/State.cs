@@ -154,4 +154,24 @@ namespace FSM
             /* 攻击状态退出逻辑 */
         }
     }
+    
+    public class UpdatedAttackState : State
+    {
+        public UpdatedAttackState(FinateStateMachine fsm) : base(fsm)
+        {
+            Type = StateType.Attack;
+        }
+        public override void Enter()
+        {
+            fsm.data.AttackLogic.AttackInit();
+        }
+        public override void Execute()
+        {
+            fsm.data.AttackLogic.AttackUpdate(Time.deltaTime);
+        }
+        public override void Exit()
+        {
+            fsm.data.AttackLogic.AttackExit();   
+        }
+    }
 }

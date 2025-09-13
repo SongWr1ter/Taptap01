@@ -7,8 +7,10 @@ public enum AttackType
     Melee,
     Ranged,
 }
-
-public abstract class BaseAttack
+[CreateAssetMenu(menuName = "AttackConfig",fileName = "BaseAttack")]
+public abstract class BaseAttack:ScriptableObject
 {
-    public abstract void Attack();
+    public abstract void AttackInit();
+    public abstract void AttackUpdate(float deltaTime);
+    public abstract void AttackExit();
 }
