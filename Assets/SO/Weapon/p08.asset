@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85fa3b79c792e7488a0172bd5b3a4c9, type: 3}
   m_Name: p08
   m_EditorClassIdentifier: 
-  attackSFX: 
+  attackSFX: machinegun
   bulletType: 0
-  bulletData: {fileID: 0}
-  shotSpeed: 0
+  bulletData: {fileID: 11400000, guid: 34eea6564c73ef740962b41ad8113946, type: 2}
+  shotSpeed: 3
   reloadTime: 0
-  ammo: 0
+  ammo: 30
