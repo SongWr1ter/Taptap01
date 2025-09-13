@@ -90,6 +90,7 @@ namespace FSM
         public override void Enter()
         {
             fsm.anim.Play("Idle");
+            fsm.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             /* 移动状态进入逻辑 */
         }
         public override void Execute()
@@ -137,6 +138,8 @@ namespace FSM
     public class DeadState : State
     {
         private float timer = 0f;
+        private float timer2 = 0f;
+        private SpriteRenderer sprite;
         public DeadState(FinateStateMachine fsm) : base(fsm)
         {
             Type = StateType.Dead;
@@ -144,8 +147,10 @@ namespace FSM
         public override void Enter()
         {
             timer = 0f;
+            timer2 = 0f;
             fsm.anim.Play("Dead");
             /* 死亡状态进入逻辑 */
+            sprite = fsm.GetComponent<SpriteRenderer>();
         }
         public override void Execute()
         {
@@ -158,11 +163,14 @@ namespace FSM
                     ObjectPoolRegister.Instance._objectPool.Despawn(fsm.data.io);
                 }
             }
+            timer2 += Time.deltaTime;
+            sprite.color = new Color(1f, 1f, 1f, Mathf.Lerp(1f, 0f, timer2));
             
         }
         public override void Exit()
         {
             /* 死亡状态退出逻辑 */
+            
         }
     }
 
