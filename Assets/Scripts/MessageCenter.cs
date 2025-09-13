@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum MESSAGE_TYPE
 {
-    ABNORMAL,
+    GAME_OVER = 0,
 }
 public struct CommonMessage
 {

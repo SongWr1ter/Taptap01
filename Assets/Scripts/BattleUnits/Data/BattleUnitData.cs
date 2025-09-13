@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 [CreateAssetMenu(fileName = "BattleUnitData", menuName = "BattleUnits/Data")]
 public class BattleUnitData : ScriptableObject
@@ -16,4 +17,6 @@ public class BattleUnitData : ScriptableObject
     public float Box_Width = 4f;
     public float Box_Height = 4f;
     public BattleUnit.Faction faction;
+    public bool rangedWeapon = false;
+    public Vector3 shootPosOffset;
 }

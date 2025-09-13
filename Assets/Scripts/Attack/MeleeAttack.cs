@@ -22,9 +22,9 @@ public class MeleeAttack : BaseAttack
         
     }
 
-    public override void AttackUpdate(float deltaTime, Transform shootTrans)
+    public override bool AttackUpdate(float deltaTime, Transform shootTrans)
     {
-        
+        return false;
     }
 
     public override void AttackExit()

@@ -14,7 +14,7 @@ public abstract class BulletBase : MonoBehaviour,IObject
     protected bool Explosion;
     // 当且仅当Explision是true时，才显示下列属性
     protected float explosionRadius;
-    protected float explosionDamage;
+    protected int explosionDamage;
     protected LayerMask interactableLayer;
     public virtual void InitData(BulletData bulletData)
     {

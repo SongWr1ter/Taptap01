@@ -10,6 +10,9 @@ public class RangedAttack : BaseAttack
     public BulletData bulletData;
     [Tooltip("一秒钟发射几发子弹")]
     public float shotSpeed;
+
+    public float reloadTime;
+    public int ammo;
     private float shotInverval;
 
     private float timer = 0f;
@@ -29,7 +32,7 @@ public class RangedAttack : BaseAttack
         throw new System.NotImplementedException();
     }
 
-    public override void AttackUpdate(float deltaTime,Transform shootTrans)
+    public override bool AttackUpdate(float deltaTime,Transform shootTrans)
     {
         timer += deltaTime;
         if (timer >= shotInverval)
@@ -38,7 +41,10 @@ public class RangedAttack : BaseAttack
             // Create Bullet
             ObjectPoolRegister.Instance._objectPool.Spawn(bulletType.ToString(), shootTrans.position,
                 shootTrans.rotation, bulletData);
+            return true;
         }
+
+        return false;
     }
 
     public override void AttackExit()

@@ -9,7 +9,8 @@ namespace FSM
         Move,
         Hurt,
         Dead,
-        Attack
+        Attack,
+        Reloading,
     }
     
     public enum ComplexStateType
@@ -20,6 +21,7 @@ namespace FSM
         Dead,
         Attack,
         UpdatedAttack,
+        Reloading,
     }
 
     public abstract class State
@@ -40,6 +42,8 @@ namespace FSM
                     return StateType.Attack;
                 case ComplexStateType.UpdatedAttack:
                     return StateType.Attack;
+                case ComplexStateType.Reloading:
+                    return StateType.Reloading;
                 default:
                     return StateType.Idle;
             }
@@ -144,6 +148,7 @@ namespace FSM
         }
         public override void Enter()
         {
+            timer = 0f;
             fsm.anim.Play("Dead");
             UnityEngine.Debug.Log("DeadState Enter");
             /* 死亡状态进入逻辑 */
@@ -154,7 +159,7 @@ namespace FSM
             if (fsm.anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
                 timer += Time.deltaTime;
-                if (timer >= 2f)
+                if (timer >= 1f)
                 {
                     ObjectPoolRegister.Instance._objectPool.Despawn(fsm.data.io);
                 }
@@ -211,11 +216,42 @@ namespace FSM
         }
         public override void Execute()
         {
-            fsm.data.AttackLogic.AttackUpdate(Time.deltaTime,fsm.data.shootTrans);
+            if(fsm.data.AttackLogic.AttackUpdate(Time.deltaTime,fsm.data.shootTrans))
+            {
+                // --fsm.data.ammo;
+                // if (fsm.data.ammo <= 0)
+                // {
+                //     fsm.EmitSignal(FinateStateMachine.SignalType.Attack2Reloading);
+                // }
+            }
         }
         public override void Exit()
         {
             fsm.data.AttackLogic.AttackExit();   
+        }
+    }
+    
+    public class ReloadingState : State
+    {
+        private float timer = 0f;
+        public ReloadingState(FinateStateMachine fsm) : base(fsm)
+        {
+            Type = StateType.Reloading;
+        }
+        public override void Enter()
+        {
+            fsm.anim.Play("Reload");
+            timer = 0f;
+            UnityEngine.Debug.Log("ReloadingState In");
+        }
+        public override void Execute()
+        {
+            
+        }
+        public override void Exit()
+        {
+            UnityEngine.Debug.Log("ReloadingState Exit");
+            /* 装弹状态退出逻辑 */
         }
     }
 }

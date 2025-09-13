@@ -13,6 +13,6 @@ public abstract class BaseAttack:ScriptableObject
     public abstract void AttackInit(object o = null);
     public abstract void AttackEnter();
     public abstract void AttackUpdate(float deltaTime);
-    public abstract void AttackUpdate(float deltaTime, Transform shootTrans);
+    public abstract bool AttackUpdate(float deltaTime, Transform shootTrans);
     public abstract void AttackExit();
 }

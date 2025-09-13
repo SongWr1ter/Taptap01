@@ -25,4 +25,18 @@ public class ObjectPoolRegister : SingleTon<ObjectPoolRegister>
             _objectPool.CreateObjectPool(str,Resources.Load<GameObject>($"AutoLoadPrefabs/{str}"));
         }
     }
+    
+    public void RemoveAllPool()
+    {
+        foreach (PoolName poolName in System.Enum.GetValues(typeof(PoolName)))
+        {
+            string str = poolName.ToString();
+            _objectPool.RemoveObjectPool(str);
+        }
+    }
+
+    public void RemoveCache()
+    {
+        MemoFrameworkEntry.RemoveComponent(_objectPool);
+    }
 }

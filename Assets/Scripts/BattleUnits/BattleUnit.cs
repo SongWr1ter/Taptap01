@@ -20,8 +20,11 @@ public class Parameter
     public float hurtDuration;
     public float attackInterval;
     public BaseAttack AttackLogic;
-    [Header("如果是近战则无视这个选项")]
+    [Header("如果是近战则无视这些选项")]
     public Transform shootTrans;
+    public int ammo;
+    public int maxAmmo;
+    public float reloadingTime;
     [HideInInspector]
     public IObject io;
 }
@@ -90,7 +93,6 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
 
     public void Die()
     {
-        canDamage = false;
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
     }
 
@@ -196,6 +198,13 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             Box_Width = bdata.Box_Width;
             Box_Height = bdata.Box_Height;
             faction = bdata.faction;
+            if (data.shootTrans) data.shootTrans.position = transform.position + bdata.shootPosOffset;
+            if (bdata.rangedWeapon)
+            {
+                data.maxAmmo = ((RangedAttack)bdata.AttackLogic).ammo;
+                data.ammo = data.maxAmmo;
+                data.reloadingTime = ((RangedAttack)bdata.AttackLogic).reloadTime;
+            }
             Name = faction.ToString();
             // 设置朝向
             if (faction == Faction.Tower)
@@ -221,10 +230,13 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         canDamage = true;
         canPushback = true;
     }
+
+    public bool flag = true;
     private void Start()
     {
         // For Debug Only
-        OnSpawned(bdata);
+        if(flag)
+            OnSpawned(bdata);
     }
     public void OnDespawned()
     {

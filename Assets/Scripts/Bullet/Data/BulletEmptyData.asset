@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BulletEmptyData
   m_EditorClassIdentifier: 
   range: 10
-  speed: 4
-  damage: 1
+  speed: 8
+  damage: 6
   pierceCount: 0
   pushForce: 0
   Explosion: 0
