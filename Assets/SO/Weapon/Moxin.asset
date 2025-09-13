@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85fa3b79c792e7488a0172bd5b3a4c9, type: 3}
   m_Name: Moxin
   m_EditorClassIdentifier: 
-  attackSFX: machinegun
+  attackSFX: lashuan
   bulletType: 0
   bulletData: {fileID: 11400000, guid: 447197659ad59f448acbf6af08ddd7a5, type: 2}
   shotSpeed: 5

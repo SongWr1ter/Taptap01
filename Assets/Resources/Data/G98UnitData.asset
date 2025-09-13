@@ -21,7 +21,7 @@ MonoBehaviour:
   hurtDuration: 1
   attackInterval: 1
   AttackLogic: {fileID: 11400000, guid: 6af5f7d07a76acd4cad6e93a16863f53, type: 2}
-  Box_Width: 4
+  Box_Width: 25
   Box_Height: 4
   faction: 0
   rangedWeapon: 1
