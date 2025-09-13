@@ -48,7 +48,7 @@ public class RoleQueueManager : MonoBehaviour
     {
         Debug.Log(roleCategory.roles.Count);
         int index = Random.Range(0,roleCategory.roles.Count);
-        GameObject rolePrefab = roleCategory.roles[index].prefab;
+        System.String roleName = roleCategory.roles[index].name;
         //修改逻辑？此处通过从对象池中拿出一个prefab，再填入对应数据（通过名字？），将其赋值给rolePrefab
         //此处修改为抽取角色名字->生成对应prefab->赋值给rolePrefab
         
@@ -60,9 +60,10 @@ public class RoleQueueManager : MonoBehaviour
         {
             drag = slot.gameObject.AddComponent<UIDragHandler>();
         }
-        drag.rolePrefab = rolePrefab;
         Debug.Log(roleCategory.roles[index].sprites.Count);
-        
+        Debug.Log(roleName);
+        drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}+UnitData");
+        Debug.Log(drag.battleUnitData.ToString());
         drag.dragSprite = roleCategory.roles[index].sprites[1];
     }
 }

@@ -23,7 +23,8 @@ public class EnemySpawner : MonoBehaviour
          
             Vector3 spawnPos = enemySpawnPoint.transform.position;
 
-            ObjectPoolRegister.Instance._objectPool.Spawn("Enemy", spawnPos, Quaternion.identity);
+            ObjectPoolRegister.Instance._objectPool.Spawn("Monster", spawnPos, Quaternion.identity);
+            Debug.Log("Éú³É");
         }
     }
 }

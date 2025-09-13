@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: BattleUnitData
+  m_Name: GunnerUnitData
   m_EditorClassIdentifier: 
-  Name: AttackA
-  sprite: {fileID: 21300000, guid: 4628dae081db40f4fb93c1f305ff2497, type: 3}
-  animator: {fileID: 0}
-  MaxHealth: 0
-  resistance: 0
+  Name: Gunner
+  sprite: {fileID: -620088271, guid: c40b7655f3520f744ab46c09c6b2b73d, type: 3}
+  animator: {fileID: 22100000, guid: 01c7c399affe9fe4895feffd1d6cb684, type: 2}
+  MaxHealth: 10
+  resistance: 1
   speed: 0
-  hurtDuration: 0
-  attackInterval: 0
-  AttackLogic: {fileID: 0}
-  Box_Width: 4
+  hurtDuration: 1
+  attackInterval: 1
+  AttackLogic: {fileID: 11400000, guid: af24a7c169fe748489612ca62a0e130f, type: 2}
+  Box_Width: 7
   Box_Height: 4
   faction: 0
