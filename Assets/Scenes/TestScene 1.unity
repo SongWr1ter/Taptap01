@@ -896,9 +896,9 @@ MonoBehaviour:
   genPointRight: {fileID: 2136360155}
   scale: 1
   factor: 0.04
-  normal: {fileID: 11400000, guid: 1feb0c7ff291c634dafd18308dd49432, type: 2}
-  varient: {fileID: 11400000, guid: 1feb0c7ff291c634dafd18308dd49432, type: 2}
-  ultra: {fileID: 11400000, guid: 1feb0c7ff291c634dafd18308dd49432, type: 2}
+  normal: {fileID: 11400000, guid: 5d07bc4ba787cb0428737d6ac38fb882, type: 2}
+  varient: {fileID: 11400000, guid: 5d07bc4ba787cb0428737d6ac38fb882, type: 2}
+  ultra: {fileID: 11400000, guid: 5d07bc4ba787cb0428737d6ac38fb882, type: 2}
   text: {fileID: 1633183458}
 --- !u!4 &391428503
 Transform:
@@ -2195,11 +2195,11 @@ PrefabInstance:
       objectReference: {fileID: -279994804, guid: 1c0096ca60dbd20409f7ac29e8e90381, type: 3}
     - target: {fileID: 3350891348649541737, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.354073
+      value: -9.49
       objectReference: {fileID: 0}
     - target: {fileID: 3350891348649541737, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.206383
+      value: -11.32
       objectReference: {fileID: 0}
     - target: {fileID: 3350891348649541737, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2236,14 +2236,14 @@ PrefabInstance:
     - target: {fileID: 7425274255031887477, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 20a15ed2449768748aa067792a8cb60f, type: 2}
+      objectReference: {fileID: 22100000, guid: b9bde4676b296114eb9b010e00ad82b0, type: 2}
     - target: {fileID: 8262788094238663232, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_Name
       value: Tower (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8262788094238663232, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3863,11 +3863,11 @@ PrefabInstance:
     - target: {fileID: 6695267542368668009, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 184291964, guid: f7f1640694ab7404e97a3a12d471a7b7, type: 3}
+      objectReference: {fileID: -1558063310, guid: 6a632ee008696d04ea527cef66c6bf59, type: 3}
     - target: {fileID: 8197351373016543934, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 8edec0dbe4ab28049884746616e6f0bc, type: 2}
+      objectReference: {fileID: 22100000, guid: 51621c2c00bc66240a7b69784c50c760, type: 2}
     - target: {fileID: 8668546341046179385, guid: 9612cf2e1bd670c40a939ddcb4b29336, type: 3}
       propertyPath: flag
       value: 1
