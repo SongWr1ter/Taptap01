@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f99692f7dafd26542a0e6e5f1d79f2f7, type: 3}
-  m_Name: Attack
+  m_Name: MeleeAttackFSM
   m_EditorClassIdentifier: 
   fsmType: 0
-  states: 0000000001000000020000000300000004000000
-  signals: 0000000001000000020000000300000004000000050000000600000007000000
+  states: 
+  signals: 

@@ -5,15 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(Collision2D))]
 public class AttackArea : MonoBehaviour
 {
-    public string targetTag;
-    private int damage;
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private LayerMask TargetTagLayerMask;
+    [SerializeField] private int damage;
+    [SerializeField]private float pushForce = 1f;
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.CompareTag(targetTag))
+        if (((1 << col.gameObject.layer) & TargetTagLayerMask) != 0 )
         {
-            if (TryGetComponent(out IDamagable i))
+            // 假设被击中的物体有一个Health组件
+            IDamagable health = col.GetComponent<IDamagable>();
+            if (health != null)
             {
-                i.GetHurt(damage);
+                if (health.GetHurt(damage))
+                {
+                    ICanPushback pushback = col.GetComponent<ICanPushback>();
+                    if (pushback != null)
+                    {
+                        pushback.Pushback(pushForce);
+                    }
+                }
             }
         }
     }

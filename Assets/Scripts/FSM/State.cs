@@ -10,9 +10,39 @@ namespace FSM
         Dead,
         Attack
     }
+    
+    public enum ComplexStateType
+    {
+        Idle,
+        Move,
+        Hurt,
+        Dead,
+        Attack,
+        UpdatedAttack,
+    }
 
     public abstract class State
     {
+        public static StateType ConvertToStateType(ComplexStateType complexStateType)
+        {
+            switch (complexStateType)
+            {
+                case ComplexStateType.Idle:
+                    return StateType.Idle;
+                case ComplexStateType.Move:
+                    return StateType.Move;
+                case ComplexStateType.Hurt:
+                    return StateType.Hurt;
+                case ComplexStateType.Dead:
+                    return StateType.Dead;
+                case ComplexStateType.Attack:
+                    return StateType.Attack;
+                case ComplexStateType.UpdatedAttack:
+                    return StateType.Attack;
+                default:
+                    return StateType.Idle;
+            }
+        }
         public StateType Type { get; protected set; }
         protected FinateStateMachine fsm;
 
@@ -70,6 +100,7 @@ namespace FSM
         }
         public override void Exit()
         {
+            fsm.rb.velocity = Vector3.zero;
             UnityEngine.Debug.Log("MoveState Exit");
             /* 移动状态退出逻辑 */
         }
@@ -117,7 +148,6 @@ namespace FSM
         }
         public override void Execute()
         {
-            UnityEngine.Debug.Log("DeadState Execute");
             /* 死亡状态执行逻辑 */
         }
         public override void Exit()
@@ -137,6 +167,7 @@ namespace FSM
         public override void Enter()
         {
             //重复播放攻击动画or射一次子弹
+            UnityEngine.Debug.Log("AttackState In");
         }
         public override void Execute()
         {
@@ -163,11 +194,11 @@ namespace FSM
         }
         public override void Enter()
         {
-            fsm.data.AttackLogic.AttackInit();
+            fsm.data.AttackLogic.AttackEnter();
         }
         public override void Execute()
         {
-            fsm.data.AttackLogic.AttackUpdate(Time.deltaTime);
+            fsm.data.AttackLogic.AttackUpdate(Time.deltaTime,fsm.data.shootTrans);
         }
         public override void Exit()
         {

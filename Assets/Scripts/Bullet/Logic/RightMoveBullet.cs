@@ -21,21 +21,27 @@ public class RightMoveBullet : BulletBase
             IDamagable health = col.GetComponent<IDamagable>();
             if (health != null)
             {
-                health.GetHurt(damage);
+                if (health.GetHurt(damage))
+                {
+                    ICanPushback pushback = col.GetComponent<ICanPushback>();
+                    if (pushback != null)
+                    {
+                        pushback.Pushback(pushForce);
+                    }
+                    if (pierceCount-- <= 0)
+                    {
+                        Recycle();
+                    }
+                }
             }
-            pierceCount--;
-            if (pierceCount <= 0)
-            {
-                Recycle();
-            }
+            
         }
     }
 
     protected override void Fly()
     {
-        Vector3 dir = Vector3.right;
         float moveDistance = speed * Time.fixedDeltaTime;
-        transform.position += dir * moveDistance;
+        transform.position += transform.right * moveDistance;
         flyDistance += moveDistance;
         if (flyDistance >= range)
         {

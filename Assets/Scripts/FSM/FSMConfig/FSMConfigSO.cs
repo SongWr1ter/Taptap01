@@ -11,6 +11,6 @@ public class FSMConfigSO : ScriptableObject
         Defend
     }
     public FSMType fsmType;
-    public List<StateType> states = new List<StateType>();
+    public List<ComplexStateType> states = new List<ComplexStateType>();
     public List<FinateStateMachine.SignalType> signals = new List<FinateStateMachine.SignalType>();
 }

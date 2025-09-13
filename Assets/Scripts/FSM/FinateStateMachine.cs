@@ -27,13 +27,13 @@ namespace FSM
         private SignalType? pendingSignal = null; // 当前待处理的信号
         private bool signalProcessedThisFrame = false; // 标记信号是否在本帧被处理
         private bool blocked = false; // 是否阻止状态转换
-        [ShowInInspector,ReadOnly]
+        [ShowInInspector, ReadOnly] private StateType currentStateType;
         private State currentState;
         [SerializeField]
         protected FSMConfigSO config;
         [SerializeField]
         protected StateType defaultState = StateType.Idle;
-
+        [HideInInspector]
         public Parameter data;
         public Animator anim;
         public Rigidbody2D rb;
@@ -68,24 +68,28 @@ namespace FSM
 
             foreach (var stateType in config.states)
             {
-                if (!stateDict.ContainsKey(stateType))
+                var cache = State.ConvertToStateType(stateType);
+                if (!stateDict.ContainsKey(cache))
                 {
                     switch (stateType)
                     {
-                        case StateType.Idle:
-                            stateDict[stateType] = new IdleState(this);
+                        case ComplexStateType.Idle:
+                            stateDict[cache] = new IdleState(this);
                             break;
-                        case StateType.Move:
-                            stateDict[stateType] = new MoveState(this);
+                        case ComplexStateType.Move:
+                            stateDict[cache] = new MoveState(this);
                             break;
-                        case StateType.Hurt:
-                            stateDict[stateType] = new HurtState(this);
+                        case ComplexStateType.Hurt:
+                            stateDict[cache] = new HurtState(this);
                             break;
-                        case StateType.Dead:
-                            stateDict[stateType] = new DeadState(this);
+                        case ComplexStateType.Dead:
+                            stateDict[cache] = new DeadState(this);
                             break;
-                        case StateType.Attack:
-                            stateDict[stateType] = new AttackState(this);
+                        case ComplexStateType.Attack:
+                            stateDict[cache] = new AttackState(this);
+                            break;
+                        case ComplexStateType.UpdatedAttack:
+                            stateDict[cache] = new UpdatedAttackState(this);
                             break;
                         // 根据需要添加更多状态
                     }
@@ -153,6 +157,16 @@ namespace FSM
         /// <param name="signal">信号类型</param>
         public void EmitSignal(SignalType signal)
         {
+            // 如果当前的信号是Any2类型，检测一下是否重复进入目标状态
+            if (signal.ToString().StartsWith("Any2"))
+            {
+                var (_, toState) = ParseSignal(signal);
+                if (currentState != null && currentState.GetStateType() == toState)
+                {
+                    // Debug.LogWarning($"Already in state {toState}, ignoring signal {signal}.");
+                    return;
+                }
+            }
             pendingSignal = signal;
             signalProcessedThisFrame = false;
         }
@@ -249,7 +263,11 @@ namespace FSM
                 currentState.Exit();
             currentState = newState;
             if (currentState != null)
+            {
                 currentState.Enter();
+                currentStateType = currentState.GetStateType();
+            }
+                
         }
 
         public void ChangeState(StateType type)
