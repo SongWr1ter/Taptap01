@@ -34,8 +34,9 @@ public class RoleQueueManager : MonoBehaviour
             {GunSlot, Gun },
             {BombSlot, Bomb }
         };
-        
+        CoinManager.Instance.AddCoin(100);
         RefreshAll();
+       
     }
     // Update is called once per frame
     void Update()
@@ -45,10 +46,14 @@ public class RoleQueueManager : MonoBehaviour
 
     public void RefreshAll()
     {
-        foreach (var item in slotToCategory)
+        if (CoinManager.Instance.SpendCoin(100))
         {
-            RefreshRole(item.Key, item.Value);  
+            foreach (var item in slotToCategory)
+            {
+                RefreshRole(item.Key, item.Value);
+            }
         }
+        
     }
 
     public void RefreshRole(Image slot,RoleCategory roleCategory)
@@ -95,10 +100,8 @@ public class RoleQueueManager : MonoBehaviour
         {
             drag = slot.gameObject.AddComponent<UIDragHandler>();
         }
-        Debug.Log(roleCategory.roles[index].sprites.Count);
-        Debug.Log($"Data/{roleName}+UnitData");
         drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}UnitData");
-        Debug.Log(drag.battleUnitData.ToString());
         drag.dragSprite = roleCategory.roles[index].sprites[1];
+        drag.cost = roleCategory.roles[index].cost;
     }
 }

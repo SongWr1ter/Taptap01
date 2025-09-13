@@ -7,7 +7,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class RoleEntry
 {
-    public String name;        
+    public String name;
+    public int cost;
     public List<Sprite> sprites;     
 }
 

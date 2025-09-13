@@ -61,8 +61,7 @@ public class RoleDragHandler : MonoBehaviour
 
                 dragIcon.raycastTarget = false;
             }
-            Debug.Log("nothit!");
-            Debug.Log(hit2D.collider.gameObject.layer);
+            
         }
 
         if (Input.GetMouseButton(0))
@@ -122,7 +121,7 @@ public class RoleDragHandler : MonoBehaviour
                     null))
                     {
                         Debug.Log("单位被回收！");
-                        CoinManager.Instance.AddCoin(100);
+                        CoinManager.Instance.AddCoin(500);
                         Destroy(dragCharacter.gameObject);
                     }
                     else 
