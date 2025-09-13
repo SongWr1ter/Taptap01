@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "AttackConfig",fileName = "MeleeAttack")]
+[CreateAssetMenu(menuName = "AttackConfig/MeleeAttack",fileName = "MeleeAttack")]
 
 public class MeleeAttack : BaseAttack
 {

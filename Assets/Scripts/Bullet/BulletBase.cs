@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using MemoFramework.ObjectPool;
 using UnityEngine;
-
-public abstract class BulletBase : MonoBehaviour
+[RequireComponent(typeof(Collider2D))]
+public abstract class BulletBase : MonoBehaviour,IObject
 {
-    protected float damage;
+    protected int damage;
     protected float speed;
-    protected float lifeTime;
-    protected float flyDistance;
+    // protected float lifeTime;
+    protected float range;
+    protected int pierceCount;
+    protected float pushForce;
+    protected bool Explosion;
+    // 当且仅当Explision是true时，才显示下列属性
+    protected float explosionRadius;
+    protected float explosionDamage;
     protected LayerMask interactableLayer;
-
-    public abstract void InitData(BulletData bulletData);
+    public virtual void InitData(BulletData bulletData)
+    {
+        damage = bulletData.damage;
+        speed = bulletData.speed;
+        // lifeTime = bulletData.lifeTime;
+        range = bulletData.range;
+        pierceCount = bulletData.pierceCount;
+        pushForce = bulletData.pushForce;
+        Explosion = bulletData.Explosion;
+        explosionRadius = bulletData.explosionRadius;
+        explosionDamage = bulletData.explosionDamage;
+        interactableLayer = bulletData.interactableLayer;
+    }
     
     protected abstract void OnHit(Collider2D col);
     
@@ -25,4 +43,10 @@ public abstract class BulletBase : MonoBehaviour
     {
         Fly();
     }
+
+    protected abstract void Recycle();
+    public string Name { get; set; }
+    public abstract void OnSpawned(object userData = null);
+
+    public abstract void OnDespawned();
 }

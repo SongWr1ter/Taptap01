@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "AttackConfig",fileName = "RangedAttack")]
+[CreateAssetMenu(menuName = "AttackConfig/RangedAttack",fileName = "RangedAttack")]
 
 public class RangedAttack : BaseAttack
 {
