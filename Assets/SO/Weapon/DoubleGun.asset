@@ -9,17 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11c281964d3ed374b852c2f6ca0140ce, type: 3}
-  m_Name: GarrantBullet
+  m_Script: {fileID: 11500000, guid: c85fa3b79c792e7488a0172bd5b3a4c9, type: 3}
+  m_Name: DoubleGun
   m_EditorClassIdentifier: 
-  range: 10
-  speed: 40
-  damage: 1
-  pierceCount: 0
-  pushForce: 0
-  Explosion: 0
-  explosionRadius: 0
-  explosionDamage: 0
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  attackSFX: machinegun
+  bulletType: 0
+  bulletData: {fileID: 11400000, guid: fe7b757d095a28146914fdcc46708d90, type: 2}
+  shotSpeed: 1
+  reloadTime: 0
+  ammo: 0
