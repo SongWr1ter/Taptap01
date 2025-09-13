@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: tk
   sprite: {fileID: 132140399, guid: 204e5c8a679d4224f8c61e77af054b67, type: 3}
-  animator: {fileID: 22100000, guid: f5804dabad41c4641bad592f4a54e722, type: 2}
+  animator: {fileID: 22100000, guid: 38719a2084c0fac438044acd705e230e, type: 2}
   MaxHealth: 40
   resistance: 1
   speed: 0
   hurtDuration: 1
   attackInterval: 1
   AttackLogic: {fileID: 11400000, guid: ddeb436685fe86445ba995a65fb47445, type: 2}
-  Box_Width: 4
+  Box_Width: 20
   Box_Height: 4
   faction: 0
   rangedWeapon: 1

@@ -2256,7 +2256,7 @@ PrefabInstance:
     - target: {fileID: 7114686862242778569, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: bdata
       value: 
-      objectReference: {fileID: 11400000, guid: 06e3b8e4c70cdd94388745ea95981657, type: 2}
+      objectReference: {fileID: 11400000, guid: 4579bde659350bd4ab62c0a7c0b45fa6, type: 2}
     - target: {fileID: 7114686862242778569, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: Box_Width
       value: 3
@@ -2268,7 +2268,7 @@ PrefabInstance:
     - target: {fileID: 7425274255031887477, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: d2bc3fd5e39cf4e498e1d0f946d24622, type: 2}
+      objectReference: {fileID: 22100000, guid: 38719a2084c0fac438044acd705e230e, type: 2}
     - target: {fileID: 8262788094238663232, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_Name
       value: Tower (1)

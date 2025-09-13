@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85fa3b79c792e7488a0172bd5b3a4c9, type: 3}
   m_Name: TankHunter
   m_EditorClassIdentifier: 
-  attackSFX: machinegun
+  attackSFX: lashuan
   bulletType: 0
   bulletData: {fileID: 11400000, guid: 25c1d45ac30d04242892d4c92674c983, type: 2}
-  shotSpeed: 1
+  shotSpeed: 0.1
   reloadTime: 0
   ammo: 0
