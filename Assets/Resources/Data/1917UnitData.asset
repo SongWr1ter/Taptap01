@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: TkUnitData
+  m_Name: 1917UnitData
   m_EditorClassIdentifier: 
-  Name: tk
-  sprite: {fileID: 132140399, guid: 204e5c8a679d4224f8c61e77af054b67, type: 3}
-  animator: {fileID: 22100000, guid: 38719a2084c0fac438044acd705e230e, type: 2}
+  Name: 1917
+  sprite: {fileID: -1605432785, guid: 246ba77a68a3d0d4a9c29c67b45f0682, type: 3}
+  animator: {fileID: 22100000, guid: f5804dabad41c4641bad592f4a54e722, type: 2}
   MaxHealth: 40
   resistance: 1
   speed: 0
   hurtDuration: 1
   attackInterval: 1
-  AttackLogic: {fileID: 11400000, guid: ddeb436685fe86445ba995a65fb47445, type: 2}
+  AttackLogic: {fileID: 11400000, guid: af24a7c169fe748489612ca62a0e130f, type: 2}
   Box_Width: 4
   Box_Height: 4
   faction: 0
   rangedWeapon: 0
-  shootPosOffset: {x: -0.86, y: 0.008, z: 0}
+  shootPosOffset: {x: -0.517, y: -0.076, z: 0}
   hurtSFX: 
   deadSFX: 
