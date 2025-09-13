@@ -100,7 +100,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     {
         canDamage = false;
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
-        SoundManager.PlayAudio(data.deadSFX);
+        if(data.deadSFX != "")
+            SoundManager.PlayAudio(data.deadSFX);
     }
 
     private void Update()
