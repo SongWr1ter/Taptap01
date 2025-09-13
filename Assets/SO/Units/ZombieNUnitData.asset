@@ -27,4 +27,4 @@ MonoBehaviour:
   rangedWeapon: 0
   shootPosOffset: {x: -0.59, y: 0, z: 0}
   hurtSFX: 
-  deadSFX: dead1
+  deadSFX: 

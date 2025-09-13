@@ -210,7 +210,10 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             data.hurtSFX = bdata.hurtSFX;
             data.deadSFX = bdata.deadSFX;
             data.attackSFX = bdata.AttackLogic.attackSFX;
-            if (data.shootTrans) data.shootTrans.position = transform.position + bdata.shootPosOffset;
+            if (data.shootTrans)
+            {
+                data.shootTrans.position = transform.position + bdata.shootPosOffset * transform.localScale.x;
+            }
             if (bdata.rangedWeapon)
             {
                 data.maxAmmo = ((RangedAttack)bdata.AttackLogic).ammo;

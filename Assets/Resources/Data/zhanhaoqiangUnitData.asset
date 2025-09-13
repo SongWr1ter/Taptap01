@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: gunziUnitData
+  m_Name: zhanhaoqiangUnitData
   m_EditorClassIdentifier: 
-  Name: gunzi
-  sprite: {fileID: 36443918, guid: 78bd89364ba0c1d488a1240e7f733ebe, type: 3}
-  animator: {fileID: 22100000, guid: 7e41d7dff62928a4690ea5e559f634ac, type: 2}
-  MaxHealth: 40
+  Name: zhanhaoqiang
+  sprite: {fileID: 370447893, guid: 3829fd40c7efd694dbeab34b1e8bac34, type: 3}
+  animator: {fileID: 22100000, guid: b9bde4676b296114eb9b010e00ad82b0, type: 2}
+  MaxHealth: 10
   resistance: 1
-  speed: 2
+  speed: 0
   hurtDuration: 1
   attackInterval: 1
-  AttackLogic: {fileID: 11400000, guid: 583a2cca5b53fa6439777561726b5f5e, type: 2}
-  Box_Width: 3
-  Box_Height: 1.9
+  AttackLogic: {fileID: 11400000, guid: 94c09aeb48f12d94ebf010c3923eca86, type: 2}
+  Box_Width: 2
+  Box_Height: 4
   faction: 0
   rangedWeapon: 0
   shootPosOffset: {x: -0.59, y: 0, z: 0}
