@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
+  m_Name: MoxinUnitData
+  m_EditorClassIdentifier: 
+  Name: Moxin
+  sprite: {fileID: -526063521, guid: 6cf4c7c0e47cd964a960b506f28c8c12, type: 3}
+  animator: {fileID: 22100000, guid: cdc2cc106218a83428f39b9f009a746a, type: 2}
+  MaxHealth: 40
+  resistance: 1
+  speed: 0
+  hurtDuration: 1
+  attackInterval: 1
+  AttackLogic: {fileID: 11400000, guid: acf8b344fa54abd4a9c1458b0472e9bd, type: 2}
+  Box_Width: 4
+  Box_Height: 4
+  faction: 0
+  rangedWeapon: 1
+  shootPosOffset: {x: -0.53, y: 0.097, z: 0}
+  hurtSFX: 
+  deadSFX: 

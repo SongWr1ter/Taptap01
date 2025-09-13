@@ -20,11 +20,11 @@ MonoBehaviour:
   speed: 0
   hurtDuration: 1
   attackInterval: 1
-  AttackLogic: {fileID: 0}
+  AttackLogic: {fileID: 11400000, guid: efde11e1db7751a42a8f63c69d979121, type: 2}
   Box_Width: 4
   Box_Height: 4
   faction: 0
   rangedWeapon: 1
-  shootPosOffset: {x: 0, y: 0, z: 0}
+  shootPosOffset: {x: -0.377, y: 0.031, z: 0}
   hurtSFX: 
   deadSFX: 
