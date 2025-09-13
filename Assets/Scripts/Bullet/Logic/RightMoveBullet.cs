@@ -33,6 +33,21 @@ public class RightMoveBullet : BulletBase
                         Recycle();
                     }
                 }
+                
+                //爆炸伤害逻辑
+                if (Explosion)
+                {
+                    //生成 VFX
+                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, interactableLayer);
+                    foreach (Collider2D nearbyObject in colliders)
+                    {
+                        IDamagable nearby = nearbyObject.GetComponent<IDamagable>();
+                        if (nearby != null)
+                        {
+                            nearby.GetHurt(explosionDamage);
+                        }
+                    }
+                }
             }
             
         }

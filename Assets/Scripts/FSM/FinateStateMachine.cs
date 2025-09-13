@@ -20,6 +20,8 @@ namespace FSM
             Hurt2Idle,       // 从Hurt状态转换到Idle状态
             // 可以根据需要继续扩展
             Attack2Move,
+            Attack2Reloading,
+            Reloading2Move,
         }
         
         private Dictionary<StateType, State> stateDict;

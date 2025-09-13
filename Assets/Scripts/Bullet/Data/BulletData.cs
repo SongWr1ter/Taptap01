@@ -15,6 +15,6 @@ public class BulletData : ScriptableObject
     [ShowIf("Explosion")]
     public float explosionRadius;
     [ShowIf("Explosion")]
-    public float explosionDamage;
+    public int explosionDamage;
     public LayerMask interactableLayer;
 }

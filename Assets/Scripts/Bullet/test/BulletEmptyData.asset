@@ -17,9 +17,9 @@ MonoBehaviour:
   damage: 1
   pierceCount: 0
   pushForce: 0
-  Explosion: 0
-  explosionRadius: 0
-  explosionDamage: 0
+  Explosion: 1
+  explosionRadius: 5
+  explosionDamage: 1000
   interactableLayer:
     serializedVersion: 2
     m_Bits: 128
