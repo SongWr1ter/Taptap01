@@ -24,7 +24,7 @@ MonoBehaviour:
   Box_Width: 4
   Box_Height: 4
   faction: 0
-  rangedWeapon: 0
+  rangedWeapon: 1
   shootPosOffset: {x: -0.86, y: 0.008, z: 0}
   hurtSFX: 
   deadSFX: 
