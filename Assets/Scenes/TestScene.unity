@@ -3716,11 +3716,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attack:
     roles:
-    - name: MachineGun
-      cost: 600
+    - name: gunzi
+      cost: 2000
       sprite: {fileID: 0}
-    - name: MachineGun
-      cost: 800
+    - name: lianjujian
+      cost: 2500
+      sprite: {fileID: 0}
+    - name: zhanhaoqiang
+      cost: 1400
       sprite: {fileID: 0}
   Gun:
     roles:

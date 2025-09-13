@@ -24,6 +24,10 @@ public class RoleQueueManager : MonoBehaviour
     { "1916", 60 },
     {"MachineGun",30 },
     { "Tk", 30 },
+    {"gunzi" ,60},
+    { "zhanhaoqiang",90},
+    { "lianjujian",30}
+
 };
 
 

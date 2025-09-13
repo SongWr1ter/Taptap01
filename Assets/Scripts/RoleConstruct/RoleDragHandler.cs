@@ -59,7 +59,7 @@ public class RoleDragHandler : MonoBehaviour
                 dragIcon.sprite = sprite;
                 dragIcon.transform.SetParent(canvas.transform, false);
                 dragRect = dragIcon.GetComponent<RectTransform>();
-                dragRect.sizeDelta = new Vector2(100, 150);
+                dragRect.sizeDelta = new Vector2(100, 100);
 
                 dragIcon.raycastTarget = false;
             }
@@ -106,7 +106,7 @@ public class RoleDragHandler : MonoBehaviour
             if (dragCharacter != null)
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mouseWorldPos.y = -12f;
+                mouseWorldPos.y = -11.8f;
                 mouseWorldPos.z = 0f;
                 dragCharacter.transform.position = mouseWorldPos;
 
@@ -127,7 +127,7 @@ public class RoleDragHandler : MonoBehaviour
                     }
                     else 
                     {
-                        Vector3 tmp = new Vector3(originPos.x, -12f,0);
+                        Vector3 tmp = new Vector3(originPos.x, -11.8f,0);
                         dragCharacter.transform.position = tmp;    
                         dragCharacter.SetActive(true);
                     }

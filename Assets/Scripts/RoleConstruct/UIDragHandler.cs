@@ -96,7 +96,7 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         }
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
-        worldPos.y = -12f;
+        worldPos.y = -11.8f;
         worldPos.z = 0;
         if (canPlace)
         {
