@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MeleeAttackFSM
   m_EditorClassIdentifier: 
   fsmType: 0
-  states: 
-  signals: 
+  states: 010000000300000004000000
+  signals: 050000000800000003000000

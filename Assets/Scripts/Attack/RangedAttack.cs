@@ -14,14 +14,14 @@ public class RangedAttack : BaseAttack
 
     private float timer = 0f;
     
-    public override void AttackInit(object o)
+    public override void AttackInit(object o = null)
     {
         shotInverval = 1 / shotSpeed;
     }
     
     public override void AttackEnter()
     {
-        timer = 0f;
+        timer = shotInverval;
     }
 
     public override void AttackUpdate(float deltaTime)

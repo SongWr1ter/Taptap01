@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BulletEmptyData
   m_EditorClassIdentifier: 
   range: 10
-  speed: 2
+  speed: 4
   damage: 1
   pierceCount: 0
   pushForce: 0
@@ -22,4 +22,4 @@ MonoBehaviour:
   explosionDamage: 0
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
