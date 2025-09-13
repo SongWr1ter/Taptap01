@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 public class Generator : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Generator : MonoBehaviour
     private float timer = 0f;
     [SerializeField]private float scale = 1f;
     private float event_timer;
-    private float prob;
+    private float prob = 0.3f;
     private float event_interval = 55f;
     private float event_duration = 5f;
     private int genCount;
@@ -27,6 +28,15 @@ public class Generator : MonoBehaviour
     [SerializeField] private TMP_Text text;
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Time.timeScale += 0.5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale -= 0.5f;
+        }
         if (Math.Abs(timer - float.MaxValue) < 1e-5)
         {
             return;
@@ -93,7 +103,7 @@ public class Generator : MonoBehaviour
 
     private float f(float t)
     {
-        return t >= 300f ? 0.3f : t / 300f;
+        return 0.3f;
     }
 
     public void Generate(int type)
@@ -115,5 +125,7 @@ public class Generator : MonoBehaviour
         Vector3 genPos = new Vector3(UnityEngine.Random.Range(genPointLeft.position.x, genPointRight.position.x), genPointLeft.position.y, 0f);
         var trans = ObjectPoolRegister.Instance._objectPool.Spawn(PoolName.Monster.ToString(), genPos, Quaternion.identity, so);
         trans.localScale = new Vector3(3, 3, 3);
+        //微调z轴坐标
+        trans.position = new Vector3(trans.position.x,trans.position.y,UnityEngine.Random.Range(-0.1f,0.1f));
     }
 }
