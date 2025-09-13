@@ -148,6 +148,7 @@ namespace FSM
         }
         public override void Enter()
         {
+            timer = 0f;
             fsm.anim.Play("Dead");
             UnityEngine.Debug.Log("DeadState Enter");
             /* 死亡状态进入逻辑 */
@@ -158,7 +159,7 @@ namespace FSM
             if (fsm.anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
                 timer += Time.deltaTime;
-                if (timer >= 2f)
+                if (timer >= 1f)
                 {
                     ObjectPoolRegister.Instance._objectPool.Despawn(fsm.data.io);
                 }

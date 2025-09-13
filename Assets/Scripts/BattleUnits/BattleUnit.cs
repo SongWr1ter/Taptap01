@@ -93,7 +93,6 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
 
     public void Die()
     {
-        canDamage = false;
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
     }
 
@@ -199,7 +198,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             Box_Width = bdata.Box_Width;
             Box_Height = bdata.Box_Height;
             faction = bdata.faction;
-            data.shootTrans.position = bdata.shootPosOffset;
+            if (data.shootTrans) data.shootTrans.position = transform.position + bdata.shootPosOffset;
             if (bdata.rangedWeapon)
             {
                 data.maxAmmo = ((RangedAttack)bdata.AttackLogic).ammo;
@@ -231,10 +230,13 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         canDamage = true;
         canPushback = true;
     }
+
+    public bool flag = true;
     private void Start()
     {
         // For Debug Only
-        OnSpawned(bdata);
+        if(flag)
+            OnSpawned(bdata);
     }
     public void OnDespawned()
     {

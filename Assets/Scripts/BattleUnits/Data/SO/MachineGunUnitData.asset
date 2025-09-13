@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: MonsterUnitData
+  m_Name: MachineGunUnitData
   m_EditorClassIdentifier: 
-  Name: Monster
-  sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  animator: {fileID: 22100000, guid: 4295e7285260f4045b4739409b591fd7, type: 2}
-  MaxHealth: 100
+  Name: MachineGun
+  sprite: {fileID: -1687609628, guid: 4020b6ea10722b6479917e521ef28cd8, type: 3}
+  animator: {fileID: 22100000, guid: 365b0fd663c3e774dbc720ef891dbdf5, type: 2}
+  MaxHealth: 10
   resistance: 1
-  speed: 2
+  speed: 0
   hurtDuration: 1
   attackInterval: 1
-  AttackLogic: {fileID: 11400000, guid: 40f3074372cf8794b8628f83fd8601f9, type: 2}
-  Box_Width: 2
+  AttackLogic: {fileID: 11400000, guid: af24a7c169fe748489612ca62a0e130f, type: 2}
+  Box_Width: 7
   Box_Height: 4
-  faction: 1
+  faction: 0
+  rangedWeapon: 0
+  shootPosOffset: {x: -0.517, y: -0.076, z: 0}
