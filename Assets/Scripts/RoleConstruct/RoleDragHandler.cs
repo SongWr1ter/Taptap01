@@ -1,3 +1,4 @@
+using MemoFramework.ObjectPool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -119,9 +120,9 @@ public class RoleDragHandler : MonoBehaviour
                     Input.mousePosition,
                     null))
                     {
-                        Debug.Log("��λ�����գ�");
+                        
                         CoinManager.Instance.AddCoin(500);
-                        Destroy(dragCharacter.gameObject);
+                        ObjectPoolRegister.Instance._objectPool.Despawn(dragCharacter.GetComponent<IObject>());
                     }
                     else 
                     {
@@ -131,8 +132,7 @@ public class RoleDragHandler : MonoBehaviour
                     }
                     
                 }
-                //Debug.Log("Recycle ��Ļλ�ã�" + RectTransformUtility.WorldToScreenPoint(null, recycleArea.position));
-                //Debug.Log("���λ�ã�" + Input.mousePosition);
+               
                 CameraDrag.canDrag = true;
             }
             if (dragIcon != null)

@@ -101,6 +101,7 @@ public class RoleQueueManager : MonoBehaviour
             drag = slot.gameObject.AddComponent<UIDragHandler>();
         }
         drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}UnitData");
+        
         drag.dragSprite = roleCategory.roles[index].sprites[1];
         drag.cost = roleCategory.roles[index].cost;
     }

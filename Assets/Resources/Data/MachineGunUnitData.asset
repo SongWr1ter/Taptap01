@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
-  m_Name: GunnerUnitData
+  m_Name: MachineGunUnitData
   m_EditorClassIdentifier: 
-  Name: Gunner
-  sprite: {fileID: -620088271, guid: c40b7655f3520f744ab46c09c6b2b73d, type: 3}
-  animator: {fileID: 22100000, guid: 01c7c399affe9fe4895feffd1d6cb684, type: 2}
+  Name: MachineGun
+  sprite: {fileID: -1687609628, guid: 4020b6ea10722b6479917e521ef28cd8, type: 3}
+  animator: {fileID: 22100000, guid: 365b0fd663c3e774dbc720ef891dbdf5, type: 2}
   MaxHealth: 10
   resistance: 1
   speed: 0
@@ -24,3 +24,7 @@ MonoBehaviour:
   Box_Width: 7
   Box_Height: 4
   faction: 0
+  rangedWeapon: 0
+  shootPosOffset: {x: -0.517, y: -0.076, z: 0}
+  hurtSFX: hurt2
+  deadSFX: dead1
