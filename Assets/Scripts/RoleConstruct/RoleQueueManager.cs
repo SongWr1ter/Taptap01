@@ -92,7 +92,7 @@ public class RoleQueueManager : MonoBehaviour
         //修改逻辑？此处通过从对象池中拿出一个prefab，再填入对应数据（通过名字？），将其赋值给rolePrefab
         //此处修改为抽取角色名字->生成对应prefab->赋值给rolePrefab
         
-        slot.sprite = roleCategory.roles[index].sprites[0];
+        slot.sprite = roleCategory.roles[index].sprite;
 
         //拖拽逻辑
         var drag = slot.GetComponent<UIDragHandler>();
@@ -102,7 +102,7 @@ public class RoleQueueManager : MonoBehaviour
         }
         drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}UnitData");
         Debug.Log(drag.battleUnitData.ToString() + "1");  
-        drag.dragSprite = roleCategory.roles[index].sprites[1];
+        //drag.dragSprite = roleCategory.roles[index].sprites[1];
         drag.cost = roleCategory.roles[index].cost;
     }
 }

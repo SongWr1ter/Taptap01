@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 1917
   sprite: {fileID: -1605432785, guid: 246ba77a68a3d0d4a9c29c67b45f0682, type: 3}
-  animator: {fileID: 22100000, guid: f5804dabad41c4641bad592f4a54e722, type: 2}
+  animator: {fileID: 22100000, guid: 365b0fd663c3e774dbc720ef891dbdf5, type: 2}
   MaxHealth: 40
   resistance: 1
   speed: 0

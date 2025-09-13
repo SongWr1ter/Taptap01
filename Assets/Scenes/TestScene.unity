@@ -2274,6 +2274,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519578494911808807, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 519578494911808807, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3252467079536139349, guid: 243fcf97c3680d54c81bbd3a219b6b0c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3702,7 +3710,7 @@ MonoBehaviour:
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
   Gun:
     roles:
-    - name: 1917
+    - name: MachineGun
       cost: 1000
       sprites:
       - {fileID: -1605432785, guid: 246ba77a68a3d0d4a9c29c67b45f0682, type: 3}

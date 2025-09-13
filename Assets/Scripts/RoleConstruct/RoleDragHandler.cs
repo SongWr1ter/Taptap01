@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RoleDragHandler : MonoBehaviour
 {
     
-    public Sprite sprite;
+    
     public float recycleRadius = 10f;
     public float groundY = -0.4f;
     
@@ -23,7 +23,7 @@ public class RoleDragHandler : MonoBehaviour
     private bool canPlace = true;
     private Transform recycleArea;
     private Vector3 originPos;
-
+    private Sprite sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class RoleDragHandler : MonoBehaviour
         canvas = FindAnyObjectByType<Canvas>();
         recycleArea = canvas.transform.Find("OptionUI/Recycle").GetComponent<RectTransform>();
         forbidSprite = Resources.Load<Sprite>("Sprite/forbidSprite");
+        sprite = Resources.Load<Sprite>("Sprite/permitSprite");
     }
 
     // Update is called once per frame

@@ -23,6 +23,7 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
     void Start()
     {
         forbidSprite = Resources.Load<Sprite>("Sprite/forbidSprite");
+        dragSprite = Resources.Load<Sprite>("Sprite/permitSprite");
         mainCamera = Camera.main;
     }
 

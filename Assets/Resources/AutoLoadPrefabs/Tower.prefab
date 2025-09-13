@@ -394,7 +394,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   bdata: {fileID: 11400000, guid: c19eae7a9b57b17438f72e15f40cba49, type: 2}
-  flag: 1
+  flag: 0
 --- !u!61 &519578494911808807
 BoxCollider2D:
   m_ObjectHideFlags: 0
