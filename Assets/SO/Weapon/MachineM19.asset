@@ -15,6 +15,6 @@ MonoBehaviour:
   attackSFX: machinegun
   bulletType: 0
   bulletData: {fileID: 11400000, guid: f75a3a1eeeba3e54f881dac8b56e7b8e, type: 2}
-  shotSpeed: 8
+  shotSpeed: 5
   reloadTime: 0
   ammo: 0

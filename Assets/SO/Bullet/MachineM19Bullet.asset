@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c281964d3ed374b852c2f6ca0140ce, type: 3}
   m_Name: MachineM19Bullet
   m_EditorClassIdentifier: 
-  range: 10
+  range: 12
   speed: 40
-  damage: 1
-  pierceCount: 1
+  damage: 5
+  pierceCount: 2
   pushForce: 0
   Explosion: 0
   explosionRadius: 0

@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/TestScene 2.unity.meta
 guid: f70d0bb411907de4ea625633a7604353
+========
+guid: d55c4c54800cfce47b2cc3749cde4e2a
+folderAsset: yes
+>>>>>>>> origin/main:Assets/Sprites/tiequan.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
