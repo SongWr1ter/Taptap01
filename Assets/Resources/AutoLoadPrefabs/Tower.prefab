@@ -297,7 +297,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  bdata: {fileID: 11400000, guid: b13103194a707e04492d1a0add11dba2, type: 2}
+  bdata: {fileID: 11400000, guid: c19eae7a9b57b17438f72e15f40cba49, type: 2}
   flag: 1
 --- !u!61 &519578494911808807
 BoxCollider2D:

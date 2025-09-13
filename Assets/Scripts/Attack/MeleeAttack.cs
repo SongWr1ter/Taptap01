@@ -6,7 +6,9 @@ using UnityEngine;
 public class MeleeAttack : BaseAttack
 {
     //近战攻击：对一定矩形范围内的敌人造成伤害
-
+    public int damage;
+    public float pushForce = 1f;
+    public LayerMask TargetTagLayerMask;
     public override void AttackInit(object o)
     {
         

@@ -31,4 +31,14 @@ public class AttackArea : MonoBehaviour
     {
         this.damage = damage;
     }
+    
+    public void SetPushForce(float pushForce)
+    {
+        this.pushForce = pushForce;
+    }
+    
+    public void SetTargetLayerMask(LayerMask layerMask)
+    {
+        this.TargetTagLayerMask = layerMask;
+    }
 }
