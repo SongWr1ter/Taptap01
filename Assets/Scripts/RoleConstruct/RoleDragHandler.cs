@@ -8,14 +8,20 @@ public class RoleDragHandler : MonoBehaviour
 {
     
     public Sprite sprite;
- 
+    public float recycleRadius = 10f;
+    public float groundY = -0.4f;
+    
 
     private Image dragIcon;
+    private Sprite forbidSprite;
     private RectTransform dragRect;
     private GameObject dragCharacter;
     private Camera mainCamera;
     private Canvas canvas;
     private static bool isDragging = false;
+    private bool canPlace = true;
+    private Transform recycleArea;
+    private Vector3 originPos;
 
 
     // Start is called before the first frame update
@@ -23,6 +29,8 @@ public class RoleDragHandler : MonoBehaviour
     {
         mainCamera = Camera.main;
         canvas = FindAnyObjectByType<Canvas>();
+        recycleArea = canvas.transform.Find("OptionUI/Recycle").GetComponent<RectTransform>();
+        forbidSprite = Resources.Load<Sprite>("Sprite/forbidSprite");
     }
 
     // Update is called once per frame
@@ -32,6 +40,7 @@ public class RoleDragHandler : MonoBehaviour
         {
             
             Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            originPos = MouseWorldPos;
             RaycastHit2D hit2D = Physics2D.Raycast(MouseWorldPos, Vector2.zero);
             if (hit2D.collider != null && hit2D.collider.gameObject.layer == LayerMask.NameToLayer("character"))
             {
@@ -57,22 +66,73 @@ public class RoleDragHandler : MonoBehaviour
             {               
                 dragRect.position = Input.mousePosition;
             }
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float currentHeigthDiff = mouseWorldPos.y - groundY;
+            
+            if(currentHeigthDiff >= -11f  & currentHeigthDiff < -10f)
+            {
+               
+                if (dragIcon != null)
+                {
+
+                    if (dragIcon.sprite != sprite)
+                        dragIcon.sprite = sprite;
+                }
+
+                canPlace = true;
+                
+            }
+            else
+            {
+                
+                if (dragIcon != null)
+                {
+
+                    if (dragIcon.sprite != forbidSprite)
+                        dragIcon.sprite = forbidSprite;
+                }
+                canPlace = false;
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (dragIcon != null)
-                Destroy(dragIcon.gameObject);
 
             if (dragCharacter != null)
             {
-                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);              
                 mouseWorldPos.z = 0f;
                 dragCharacter.transform.position = mouseWorldPos;
-                dragCharacter.SetActive(true);
+
+                if (canPlace)
+                {                 
+                    dragCharacter.SetActive(true);
+                }
+                else
+                {
+                    if (RectTransformUtility.RectangleContainsScreenPoint(
+                    recycleArea as RectTransform,
+                    Input.mousePosition,
+                    null))
+                    {
+                        Debug.Log("单位被回收！");
+                        CoinManager.Instance.AddCoin(100);
+                        Destroy(dragCharacter.gameObject);
+                    }
+                    else 
+                    {
+                        Vector3 tmp = new Vector3(originPos.x,originPos.y,0);
+                        dragCharacter.transform.position = tmp;    
+                        dragCharacter.SetActive(true);
+                    }
+                    
+                }
+                //Debug.Log("Recycle 屏幕位置：" + RectTransformUtility.WorldToScreenPoint(null, recycleArea.position));
+                //Debug.Log("鼠标位置：" + Input.mousePosition);
                 CameraDrag.canDrag = true;
             }
-            
+            if (dragIcon != null)
+                Destroy(dragIcon.gameObject);
             dragCharacter = null;
             dragIcon = null;
             dragRect = null;
