@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class RoleEntry
 {
-    public GameObject prefab;        
+    public String name;        
     public List<Sprite> sprites;     
 }
 

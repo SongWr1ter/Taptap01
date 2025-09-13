@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndDragHandler
 {
-    [HideInInspector] public GameObject rolePrefab;
+    [HideInInspector] public BattleUnitData battleUnitData;
     [HideInInspector] public Sprite dragSprite;
 
     public float groundY = -0.4f;
@@ -90,7 +90,10 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
         worldPos.z = 0;
         if(canPlace)
-        Instantiate(rolePrefab, worldPos,Quaternion.identity);
+        {
+            ObjectPoolRegister.Instance._objectPool.Spawn("Tower",worldPos,Quaternion.identity,battleUnitData);
+        }
+        
 
         CameraDrag.canDrag = true;
     }
