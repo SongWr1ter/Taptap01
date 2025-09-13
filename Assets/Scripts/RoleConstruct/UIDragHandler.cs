@@ -53,7 +53,7 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float currentHeigthDiff = mouseWorldPos.y - groundY;
           
-            if (currentHeigthDiff >= -11.5f && currentHeigthDiff < -10.5f)
+            if (currentHeigthDiff >= -13f && currentHeigthDiff < -9f)
             {
                 
                 if (dragIcon != null)
@@ -88,6 +88,7 @@ public class UIDragHandler : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndD
         }
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(eventData.position);
+        worldPos.y = -12f;
         worldPos.z = 0;
         if(canPlace)
         {

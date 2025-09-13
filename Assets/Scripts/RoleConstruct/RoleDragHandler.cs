@@ -41,13 +41,16 @@ public class RoleDragHandler : MonoBehaviour
             
             Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             originPos = MouseWorldPos;
+
             RaycastHit2D hit2D = Physics2D.Raycast(MouseWorldPos, Vector2.zero);
             if (hit2D.collider != null && hit2D.collider.gameObject.layer == LayerMask.NameToLayer("character"))
             {
                 isDragging = true;
                 CameraDrag.canDrag = false;
+
                 Debug.Log("hit!");
-                dragCharacter = hit2D.collider.gameObject;
+                Debug.Log(hit2D.collider.gameObject.layer);
+                dragCharacter = hit2D.collider.gameObject.transform.parent.gameObject;
                 dragCharacter.SetActive(false);
                 GameObject icon = new GameObject("dragIcon");
                 dragIcon = icon.AddComponent<Image>();
@@ -58,6 +61,8 @@ public class RoleDragHandler : MonoBehaviour
 
                 dragIcon.raycastTarget = false;
             }
+            Debug.Log("nothit!");
+            Debug.Log(hit2D.collider.gameObject.layer);
         }
 
         if (Input.GetMouseButton(0))
@@ -69,7 +74,7 @@ public class RoleDragHandler : MonoBehaviour
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float currentHeigthDiff = mouseWorldPos.y - groundY;
             
-            if(currentHeigthDiff >= -11.5f  & currentHeigthDiff < -10.5f)
+            if(currentHeigthDiff >= -13f  & currentHeigthDiff < -9f)
             {
                
                 if (dragIcon != null)
@@ -100,7 +105,8 @@ public class RoleDragHandler : MonoBehaviour
 
             if (dragCharacter != null)
             {
-                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);              
+                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mouseWorldPos.y = -12f;
                 mouseWorldPos.z = 0f;
                 dragCharacter.transform.position = mouseWorldPos;
 
@@ -121,7 +127,7 @@ public class RoleDragHandler : MonoBehaviour
                     }
                     else 
                     {
-                        Vector3 tmp = new Vector3(originPos.x,originPos.y,0);
+                        Vector3 tmp = new Vector3(originPos.x, -12f,0);
                         dragCharacter.transform.position = tmp;    
                         dragCharacter.SetActive(true);
                     }

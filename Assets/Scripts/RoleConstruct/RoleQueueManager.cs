@@ -61,8 +61,8 @@ public class RoleQueueManager : MonoBehaviour
             drag = slot.gameObject.AddComponent<UIDragHandler>();
         }
         Debug.Log(roleCategory.roles[index].sprites.Count);
-        Debug.Log(roleName);
-        drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}+UnitData");
+        Debug.Log($"Data/{roleName}+UnitData");
+        drag.battleUnitData = Resources.Load<BattleUnitData>($"Data/{roleName}UnitData");
         Debug.Log(drag.battleUnitData.ToString());
         drag.dragSprite = roleCategory.roles[index].sprites[1];
     }
