@@ -113,6 +113,7 @@ public class Generator : MonoBehaviour
         }
         //生成位置在genPointLeft和genPointRight之间随机
         Vector3 genPos = new Vector3(UnityEngine.Random.Range(genPointLeft.position.x, genPointRight.position.x), genPointLeft.position.y, 0f);
-        ObjectPoolRegister.Instance._objectPool.Spawn(PoolName.Monster.ToString(), genPos, Quaternion.identity,so);
+        var trans = ObjectPoolRegister.Instance._objectPool.Spawn(PoolName.Monster.ToString(), genPos, Quaternion.identity, so);
+        trans.localScale = new Vector3(3, 3, 3);
     }
 }

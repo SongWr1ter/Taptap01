@@ -10,5 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6deb35dac8ed14ba0999f39bb8382f, type: 3}
-  m_Name: MeleeAttackSO
+  m_Name: Gunzi
   m_EditorClassIdentifier: 
+  attackSFX: 
+  damage: 20
+  pushForce: 1
+  TargetTagLayerMask:
+    serializedVersion: 2
+    m_Bits: 128

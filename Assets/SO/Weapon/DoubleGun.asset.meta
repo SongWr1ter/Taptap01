@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/SO/Weapon/DoubleGun.asset.meta
 guid: c32621c60f2a0b44bb8eb1a953bf1653
 NativeFormatImporter:
+========
+guid: 1427e69f60c3d3c419ddae131ad76328
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> origin/main:Assets/Sprites/lianjujian.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 

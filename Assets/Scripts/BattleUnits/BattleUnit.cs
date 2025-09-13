@@ -45,7 +45,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     public float Box_Height = 4f;
     public Faction faction = Faction.Monster;
     public LayerMask enemyLayerMask = 1;
-    private float duration;
+    private float duration = 0.5f;
     private bool canDamage = true;
     private bool canPushback = true;
     private float skillA_factor = 1f;
@@ -85,7 +85,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         {
             //  TODO
             // 播放受伤特效
-            SoundManager.PlayAudio(data.hurtSFX);
+            if(data.hurtSFX != "")
+                SoundManager.PlayAudio(data.hurtSFX);
         }
 
         return true;
@@ -215,6 +216,14 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
                 data.maxAmmo = ((RangedAttack)bdata.AttackLogic).ammo;
                 data.ammo = data.maxAmmo;
                 data.reloadingTime = ((RangedAttack)bdata.AttackLogic).reloadTime;
+            }
+            else
+            {
+                MeleeAttack ma = bdata.AttackLogic as MeleeAttack;
+                var at = GetComponentInChildren<AttackArea>();
+                at.SetDamage(ma.damage);
+                at.SetPushForce(ma.pushForce);
+                at.SetTargetLayerMask(ma.TargetTagLayerMask);
             }
             Name = faction.ToString();
             // 设置朝向
