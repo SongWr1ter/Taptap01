@@ -346,7 +346,7 @@ Transform:
   m_GameObject: {fileID: 74673935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.22, y: -9.92, z: -10}
+  m_LocalPosition: {x: -7.33, y: -9.92, z: -10}
   m_LocalScale: {x: 1, y: 0.7356843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragSpeed: 5
-  minBound: {x: -16.53, y: -9.89}
+  minBound: {x: -16.53, y: -9.92}
   maxBound: {x: -9.22, y: -9.17}
 --- !u!114 &74673941
 MonoBehaviour:
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fdfb3664abb9a4da15fe7672fc42e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCount: 0
+  coinCount: 100000
   coinText: {fileID: 861725728}
 --- !u!4 &819768385
 Transform:
@@ -2691,22 +2691,26 @@ MonoBehaviour:
   Attack:
     roles:
     - name: Gunner
+      cost: 600
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
     - name: Gunner
+      cost: 800
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
   Gun:
     roles:
     - name: Gunner
+      cost: 1000
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
   Bomb:
     roles:
     - name: Gunner
+      cost: 1400
       sprites:
       - {fileID: 9080238007994650367, guid: 4ca2f7ede74f83646937d6fa0d2b9fef, type: 3}
       - {fileID: 21300000, guid: 332849aadca74634eb54411d91c24539, type: 3}
