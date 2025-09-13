@@ -240,8 +240,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         canDamage = true;
         canPushback = true;
         skillA_factor = 1f;
-        MessageCenter.AddListener(OnSkillA,MESSAGE_TYPE.GAME_OVER);
-        MessageCenter.AddListener(OnSkillAEnd,MESSAGE_TYPE.GAME_OVER);
+        MessageCenter.AddListener(OnSkillA,MESSAGE_TYPE.SkillA);
+        MessageCenter.AddListener(OnSkillAEnd,MESSAGE_TYPE.SkillAEnd);
     }
 
     public bool flag = true;
@@ -253,8 +253,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     }
     public void OnDespawned()
     {
-        MessageCenter.RemoveListener(OnSkillA, MESSAGE_TYPE.GAME_OVER);
-        MessageCenter.RemoveListener(OnSkillAEnd, MESSAGE_TYPE.GAME_OVER);
+        MessageCenter.RemoveListener(OnSkillA, MESSAGE_TYPE.SkillA);
+        MessageCenter.RemoveListener(OnSkillAEnd, MESSAGE_TYPE.SkillAEnd);
     }
 
     private void OnSkillA(CommonMessage msg)
