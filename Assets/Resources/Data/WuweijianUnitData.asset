@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b9d9d3f893a3b448cdb4ce274d6067, type: 3}
+  m_Name: WuweijianUnitData
+  m_EditorClassIdentifier: 
+  Name: Wuweijian
+  sprite: {fileID: -2049236586, guid: 50389b43696ee6c47a11c9aa5591b270, type: 3}
+  animator: {fileID: 22100000, guid: fed994c45dbe1904aa9b8fab5e98a4cb, type: 2}
+  MaxHealth: 40
+  resistance: 1
+  speed: 0
+  hurtDuration: 1
+  attackInterval: 1
+  AttackLogic: {fileID: 11400000, guid: 98ea4a26a542cf544b609bd047d1b749, type: 2}
+  Box_Width: 12
+  Box_Height: 4
+  faction: 0
+  rangedWeapon: 1
+  shootPosOffset: {x: -0.6, y: 0, z: 0}
+  hurtSFX: 
+  deadSFX: 
