@@ -8,6 +8,7 @@ public enum MESSAGE_TYPE
     GAME_OVER = 0,
     SkillA,
     SkillAEnd,
+    AddCoin
 }
 public struct CommonMessage
 {

@@ -3736,6 +3736,8 @@ MonoBehaviour:
     - name: 1916
       cost: 900
       sprite: {fileID: 0}
+  Bomb:
+    roles:
     - name: Moxin
       cost: 600
       sprite: {fileID: 0}
@@ -3744,11 +3746,6 @@ MonoBehaviour:
       sprite: {fileID: 0}
     - name: G98
       cost: 1300
-      sprite: {fileID: 0}
-  Bomb:
-    roles:
-    - name: MachineGun
-      cost: 1400
       sprite: {fileID: 0}
   AttackSlot: {fileID: 1058869589}
   GunSlot: {fileID: 2049701761}
