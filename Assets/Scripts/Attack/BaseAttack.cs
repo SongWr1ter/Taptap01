@@ -10,6 +10,7 @@ public enum AttackType
 [CreateAssetMenu(menuName = "AttackConfig",fileName = "BaseAttack")]
 public abstract class BaseAttack:ScriptableObject
 {
+    public string attackSFX;
     public abstract void AttackInit(object o = null);
     public abstract void AttackEnter();
     public abstract void AttackUpdate(float deltaTime);

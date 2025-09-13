@@ -39,7 +39,7 @@ public class Generator : MonoBehaviour
             impluse_timer = 0f;
             prob = f(timer);
              // 生成多少个怪物
-             genCount = Mathf.FloorToInt(timer * factor);;
+             genCount = Mathf.FloorToInt(timer * factor) < 1 ? 1 : Mathf.FloorToInt(timer * factor);
              // 怪物当中有多少个变异
              int varCount = Mathf.FloorToInt(genCount * prob);
              // 究极怪物事件

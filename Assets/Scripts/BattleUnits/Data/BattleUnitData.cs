@@ -19,4 +19,7 @@ public class BattleUnitData : ScriptableObject
     public BattleUnit.Faction faction;
     public bool rangedWeapon = false;
     public Vector3 shootPosOffset;
+    [Header("SFX")] 
+    public string hurtSFX;
+    public string deadSFX;
 }

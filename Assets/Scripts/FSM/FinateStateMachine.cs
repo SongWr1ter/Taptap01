@@ -169,8 +169,44 @@ namespace FSM
                     return;
                 }
             }
-            pendingSignal = signal;
+            // 信号优先级
+            if (pendingSignal.HasValue)
+            {
+                pendingSignal = PrioritySignal(pendingSignal.Value, signal);
+            }else
+            {
+                pendingSignal = signal;
+            }
+            
             signalProcessedThisFrame = false;
+        }
+        
+        private SignalType PrioritySignal(SignalType signalA, SignalType signalB)
+        {
+            // 定义信号优先级顺序
+            List<SignalType> priorityOrder = new List<SignalType>
+            {
+                SignalType.Any2Dead,
+                SignalType.Any2Hurt,
+                SignalType.Move2Attack,
+                SignalType.Idle2Attack,
+                SignalType.Attack2Idle,
+                SignalType.Move2Idle,
+                SignalType.Idle2Move,
+                // 根据需要继续添加
+            };
+
+            int indexA = priorityOrder.IndexOf(signalA);
+            int indexB = priorityOrder.IndexOf(signalB);
+
+            if (indexA == -1 && indexB == -1)
+                return signalA; // 如果两个信号都不在优先级列表中，返回第一个信号
+            if (indexA == -1)
+                return signalB; // 如果signalA不在列表中，返回signalB
+            if (indexB == -1)
+                return signalA; // 如果signalB不在列表中，返回signalA
+
+            return indexA < indexB ? signalA : signalB; // 返回优先级更高的信号
         }
 
         /// <summary>

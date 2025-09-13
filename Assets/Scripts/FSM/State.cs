@@ -73,12 +73,10 @@ namespace FSM
         }
         public override void Execute()
         {
-            UnityEngine.Debug.Log("IdleState Execute");
             /* 待机状态执行逻辑 */
         }
         public override void Exit()
         {
-            UnityEngine.Debug.Log("IdleState Exit");
             /* 待机状态退出逻辑 */
         }
     }
@@ -92,7 +90,6 @@ namespace FSM
         public override void Enter()
         {
             fsm.anim.Play("Idle");
-            UnityEngine.Debug.Log("MoveState Enter");
             /* 移动状态进入逻辑 */
         }
         public override void Execute()
@@ -105,7 +102,6 @@ namespace FSM
         public override void Exit()
         {
             fsm.rb.velocity = Vector3.zero;
-            UnityEngine.Debug.Log("MoveState Exit");
             /* 移动状态退出逻辑 */
         }
     }
@@ -133,7 +129,6 @@ namespace FSM
         }
         public override void Exit()
         {
-            UnityEngine.Debug.Log("HurtState Exit");
             /* 受伤状态退出逻辑 */
         }
         
@@ -150,7 +145,6 @@ namespace FSM
         {
             timer = 0f;
             fsm.anim.Play("Dead");
-            UnityEngine.Debug.Log("DeadState Enter");
             /* 死亡状态进入逻辑 */
         }
         public override void Execute()
@@ -168,7 +162,6 @@ namespace FSM
         }
         public override void Exit()
         {
-            UnityEngine.Debug.Log("DeadState Exit");
             /* 死亡状态退出逻辑 */
         }
     }
@@ -184,7 +177,6 @@ namespace FSM
         {
             fsm.anim.Play("Attack");
             //重复播放攻击动画or射一次子弹
-            UnityEngine.Debug.Log("AttackState In");
         }
         public override void Execute()
         {
@@ -198,7 +190,6 @@ namespace FSM
         }
         public override void Exit()
         {
-            UnityEngine.Debug.Log("AttackState Exit");
             /* 攻击状态退出逻辑 */
         }
     }
@@ -242,7 +233,6 @@ namespace FSM
         {
             fsm.anim.Play("Reload");
             timer = 0f;
-            UnityEngine.Debug.Log("ReloadingState In");
         }
         public override void Execute()
         {
@@ -250,7 +240,6 @@ namespace FSM
         }
         public override void Exit()
         {
-            UnityEngine.Debug.Log("ReloadingState Exit");
             /* 装弹状态退出逻辑 */
         }
     }

@@ -61,7 +61,6 @@ public class RoleDragHandler : MonoBehaviour
 
                 dragIcon.raycastTarget = false;
             }
-            
         }
 
         if (Input.GetMouseButton(0))
@@ -120,7 +119,7 @@ public class RoleDragHandler : MonoBehaviour
                     Input.mousePosition,
                     null))
                     {
-                        Debug.Log("µ¥Î»±»»ØÊÕ£¡");
+                        Debug.Log("ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Õ£ï¿½");
                         CoinManager.Instance.AddCoin(500);
                         Destroy(dragCharacter.gameObject);
                     }
@@ -132,8 +131,8 @@ public class RoleDragHandler : MonoBehaviour
                     }
                     
                 }
-                //Debug.Log("Recycle ÆÁÄ»Î»ÖÃ£º" + RectTransformUtility.WorldToScreenPoint(null, recycleArea.position));
-                //Debug.Log("Êó±êÎ»ÖÃ£º" + Input.mousePosition);
+                //Debug.Log("Recycle ï¿½ï¿½Ä»Î»ï¿½Ã£ï¿½" + RectTransformUtility.WorldToScreenPoint(null, recycleArea.position));
+                //Debug.Log("ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½" + Input.mousePosition);
                 CameraDrag.canDrag = true;
             }
             if (dragIcon != null)

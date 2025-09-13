@@ -27,6 +27,9 @@ public class Parameter
     public float reloadingTime;
     [HideInInspector]
     public IObject io;
+    public string hurtSFX;
+    public string deadSFX;
+    public string attackSFX;
 }
 
 public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
@@ -45,6 +48,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     private float duration;
     private bool canDamage = true;
     private bool canPushback = true;
+    private float skillA_factor = 1f;
     private int face2Rgiht
     {
         get
@@ -72,7 +76,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     public bool GetHurt(int damage)
     {
         if (!canDamage) return false;
-        data.Health -= damage;
+        data.Health -= Mathf.FloorToInt(damage * skillA_factor);
         if (data.Health <= 0)
         {
             Die();
@@ -81,6 +85,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         {
             //  TODO
             // 播放受伤特效
+            SoundManager.PlayAudio(data.hurtSFX);
         }
 
         return true;
@@ -93,7 +98,9 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
 
     public void Die()
     {
+        canDamage = false;
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
+        SoundManager.PlayAudio(data.deadSFX);
     }
 
     private void Update()
@@ -198,6 +205,9 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             Box_Width = bdata.Box_Width;
             Box_Height = bdata.Box_Height;
             faction = bdata.faction;
+            data.hurtSFX = bdata.hurtSFX;
+            data.deadSFX = bdata.deadSFX;
+            data.attackSFX = bdata.AttackLogic.attackSFX;
             if (data.shootTrans) data.shootTrans.position = transform.position + bdata.shootPosOffset;
             if (bdata.rangedWeapon)
             {
@@ -229,6 +239,9 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         FactionSetup();
         canDamage = true;
         canPushback = true;
+        skillA_factor = 1f;
+        MessageCenter.AddListener(OnSkillA,MESSAGE_TYPE.GAME_OVER);
+        MessageCenter.AddListener(OnSkillAEnd,MESSAGE_TYPE.GAME_OVER);
     }
 
     public bool flag = true;
@@ -240,6 +253,23 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     }
     public void OnDespawned()
     {
-        
+        MessageCenter.RemoveListener(OnSkillA, MESSAGE_TYPE.GAME_OVER);
+        MessageCenter.RemoveListener(OnSkillAEnd, MESSAGE_TYPE.GAME_OVER);
+    }
+
+    private void OnSkillA(CommonMessage msg)
+    {
+        if (faction == Faction.Monster)
+        {
+            skillA_factor = 2f;
+        }
+    }
+    
+    private void OnSkillAEnd(CommonMessage msg)
+    {
+        if (faction == Faction.Monster)
+        {
+            skillA_factor = 1f;
+        }
     }
 }

@@ -16,7 +16,7 @@ public static class SoundManager
     public static Queue<string> currentClips = new Queue<string>();
     public static float playVolume = .7f;
     private static List<AudioSource> Sfx_multiOneShotAudioSourceList;
-    private const int MAX_PLAY_CNT = 5;
+    private const int MAX_PLAY_CNT = 10;
 
     //播放音效直接调用这个函数就行
     //它不关心能否同一时间大量播放,即你每一帧调用一次的话它每一帧播放一次，它不关上一个同样的音效放没放完

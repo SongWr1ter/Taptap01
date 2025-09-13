@@ -26,3 +26,5 @@ MonoBehaviour:
   faction: 0
   rangedWeapon: 0
   shootPosOffset: {x: -0.517, y: -0.076, z: 0}
+  hurtSFX: hurt2
+  deadSFX: dead1

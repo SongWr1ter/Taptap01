@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85fa3b79c792e7488a0172bd5b3a4c9, type: 3}
   m_Name: NormalGun
   m_EditorClassIdentifier: 
+  attackSFX: machinegun
   bulletType: 0
   bulletData: {fileID: 11400000, guid: 284aebec21cbcf3498d150a08f5adff7, type: 2}
   shotSpeed: 4
+  reloadTime: 0
+  ammo: 0
