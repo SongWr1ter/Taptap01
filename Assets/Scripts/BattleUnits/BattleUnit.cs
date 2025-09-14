@@ -32,7 +32,7 @@ public class Parameter
     public string attackSFX;
 }
 
-public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
+public class BattleUnit : MonoBehaviour, IDamagable, ICanPushback, IObject
 {
     public enum Faction
     {
@@ -49,6 +49,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     private bool canDamage = true;
     private bool canPushback = true;
     private float skillA_factor = 1f;
+    private bool canPlayHurtVFX = true;
+    private SpriteRenderer spriteRenderer;
     private int face2Rgiht
     {
         get
@@ -69,9 +71,10 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         fsm = GetComponent<FinateStateMachine>();
         fsm.data = data; // 将数值传递给状态机,无关顺序
         data.io = this;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    
+
 
     public bool GetHurt(int damage)
     {
@@ -83,10 +86,12 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         }
         else
         {
-            //  TODO
-            // 播放受伤特效
-            if(data.hurtSFX != "")
-                SoundManager.PlayAudio(data.hurtSFX);
+            if (canPlayHurtVFX)
+            {
+                canPlayHurtVFX = false;
+                spriteRenderer.DOColor(Color.red, 0.1f).SetLoops(2, LoopType.Yoyo).OnComplete(() => canPlayHurtVFX = true);
+            }
+
         }
 
         return true;
@@ -101,10 +106,10 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
     {
         canDamage = false;
         fsm.EmitSignal(FinateStateMachine.SignalType.Any2Dead);
-        if(data.deadSFX != "")
+        if (data.deadSFX != "")
             SoundManager.PlayAudio(data.deadSFX);
 
-        if(faction == Faction.Monster)
+        if (faction == Faction.Monster)
         {
             CoinManager.Instance.AddCoin(35);
         }
@@ -112,12 +117,12 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
 
     private void Update()
     {
-        
+
     }
 
     public void Pushback(float _force)
     {
-        if (!canPushback || Mathf.Approximately(0f,_force)) return;
+        if (!canPushback || Mathf.Approximately(0f, _force)) return;
         // canDamage = false;
         canPushback = false;
         data.speed_factor = 0;
@@ -136,7 +141,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             enemyLayerMask = 1 << LayerMask.NameToLayer("Tower");
             // 设置自己的LayerMask
             transform.gameObject.layer = LayerMask.NameToLayer("Monster");
-        }else if (faction == Faction.Tower)
+        }
+        else if (faction == Faction.Tower)
         {
             enemyLayerMask = 1 << LayerMask.NameToLayer("Monster");
             transform.gameObject.layer = LayerMask.NameToLayer("Tower");
@@ -160,7 +166,8 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
                 // 进入攻击状态
                 fsm.EmitSignal(FinateStateMachine.SignalType.Move2Attack);
             }
-        }else if (fsm.GetCurrentState().GetStateType() == StateType.Attack)
+        }
+        else if (fsm.GetCurrentState().GetStateType() == StateType.Attack)
         {
             // 检测前方一定距离内是否有敌人
             var col = Physics2D.OverlapBox(transform.position + Vector3.right * (face2Rgiht * Box_Width) / 2,
@@ -178,7 +185,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         if (faction == Faction.Tower)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(transform.position + Vector3.left * Box_Width / 2, new Vector3(Box_Width, Box_Height, 0) );
+            Gizmos.DrawWireCube(transform.position + Vector3.left * Box_Width / 2, new Vector3(Box_Width, Box_Height, 0));
             // 绘制一个箭头，箭头从Vector3.right方向开始,旋转angle度
             Gizmos.color = Color.yellow;
             return;
@@ -187,11 +194,11 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         {
             // 绘制一个矩形区域
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position + Vector3.right * Box_Width / 2, new Vector3(Box_Width, Box_Height, 0) );
+            Gizmos.DrawWireCube(transform.position + Vector3.right * Box_Width / 2, new Vector3(Box_Width, Box_Height, 0));
             // 绘制一个箭头，箭头从Vector3.right方向开始,旋转angle度
             Gizmos.color = Color.yellow;
         }
-        
+
         // Vector3 dir = Quaternion.Euler(0, 0, angle) * Vector3.right;
         // Gizmos.DrawLine(transform.position, transform.position + dir * 2);
     }
@@ -258,15 +265,15 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
         canDamage = true;
         canPushback = true;
         skillA_factor = 1f;
-        MessageCenter.AddListener(OnSkillA,MESSAGE_TYPE.SkillA);
-        MessageCenter.AddListener(OnSkillAEnd,MESSAGE_TYPE.SkillAEnd);
+        MessageCenter.AddListener(OnSkillA, MESSAGE_TYPE.SkillA);
+        MessageCenter.AddListener(OnSkillAEnd, MESSAGE_TYPE.SkillAEnd);
     }
 
     public bool flag = true;
     private void Start()
     {
         // For Debug Only
-        if(flag)
+        if (flag)
             OnSpawned(bdata);
     }
     public void OnDespawned()
@@ -282,7 +289,7 @@ public class BattleUnit : MonoBehaviour,IDamagable,ICanPushback,IObject
             skillA_factor = 2f;
         }
     }
-    
+
     private void OnSkillAEnd(CommonMessage msg)
     {
         if (faction == Faction.Monster)
